@@ -2,7 +2,8 @@
 
 require_once './libs/smarty-3.1.39/libs/Smarty.class.php';
 
-class booksView {
+class booksView
+{
     private $smarty;
 
     function __construct()
@@ -10,15 +11,14 @@ class booksView {
         $this->smarty = new Smarty();
     }
 
-    function showBooks($books){
+    function showBooks($booksData)
+    {
         $this->smarty->assign('cabeceraCol_1', 'Nombre del Libro');
         $this->smarty->assign('cabeceraCol_2', 'Genero');
-        $this->smarty->assign('cabeceraCol_3', 'Año de publicacion');
+        $this->smarty->assign('cabeceraCol_3', 'Autor');
 
-        $this->smarty->assign('books', $books);
+        $this->smarty->assign('books', $booksData);
 
-        
         $this->smarty->display('templates/tableBooks.tpl');
-        
     }
 }

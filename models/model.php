@@ -10,13 +10,14 @@ class booksModel
     }
 
     //Obtiene todos los libros de la db
-    function getAllBooks()
+    function getAllData()
     {
-        $query = $this->db->prepare('SELECT * FROM libros');
+        $query = $this->db->prepare('SELECT libros.*, autor.nombre as autor FROM libros JOIN autor ON libros.id_autor_fk = autor.id_autor');
         $query->execute();
         
-        $books = $query->fetchAll(PDO::FETCH_OBJ); // obtengo un arreglo con TODAS las tareas
+        $Booksdata = $query->fetchAll(PDO::FETCH_OBJ); 
 
-        return $books;
+        return $Booksdata;
     }
+
 }

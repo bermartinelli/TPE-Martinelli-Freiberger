@@ -14,8 +14,7 @@ class booksController {
     }
 
     public function showBooks() {
-        $libros = $this->model->getAllBooks();
-
-        $this->view->showBooks($libros);
+        $dataLibros = $this->model->getAllData();
+        $this->view->showBooks($dataLibros);
     }
 }

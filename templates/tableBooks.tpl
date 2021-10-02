@@ -9,12 +9,12 @@
     </tr>
   </thead>
   <tbody>
-  {foreach from=$books item=$book}
-    <tr>
-      <td>{$book ->nombre}</td>
-      <td>{$book ->genero}</td>
-      <td>{$book ->anio}</td>
-    </tr>
+  {foreach from=$books item=$bookData}
+  <tr>
+      <td>{$bookData ->nombre}</td>
+      <td>{$bookData ->genero}</td>
+      <td>{$bookData->autor}</td>
+    </tr> 
   {/foreach}
    
   </tbody>
