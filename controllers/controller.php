@@ -18,10 +18,5 @@ class booksController {
         $this->view->showBooks($dataLibros);
     }
 
-    public function showLogin(){
-        $this->view->showLogin();
-
-        
-
-    }
+    
 }
