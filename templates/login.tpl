@@ -5,7 +5,7 @@
 <div class="wrapper fadeInDown">
   <div id="formContent">
     <!-- Tabs Titles -->
-
+    <!-- Username: Admin || Password: admin123 -->
     <!-- Login Form -->
     <form method="POST" action="verify">
       <input type="text" id="username" class="fadeIn second mt-4" name="username" placeholder="Nombre de usuario">
