@@ -1,4 +1,5 @@
 {include file='templates/header.tpl'}
+</head>
 
 <table class="table">
   <thead>
