@@ -17,4 +17,11 @@ class booksController {
         $dataLibros = $this->model->getAllData();
         $this->view->showBooks($dataLibros);
     }
+
+    public function showLogin(){
+        $this->view->showLogin();
+
+        
+
+    }
 }

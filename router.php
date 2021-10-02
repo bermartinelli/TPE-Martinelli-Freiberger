@@ -9,7 +9,7 @@ if (!empty($_GET['action'])){
     $action = $_GET['action'];
 }
 else {
-    $action = 'listar';
+    $action = 'home';
 }
 
 $params = explode('/', $action);
@@ -17,10 +17,13 @@ $params = explode('/', $action);
 $controller = new booksController();
 
 switch ($params[0]) {
-    case 'listar':
+    case 'home':
         $controller->showBooks();
         break;
-    default:
-        echo '404 - Página no encontrada';
+    case 'login':
+        $controller->showLogin();
         break;
+    default:
+    echo '404 - Página no encontrada';
+    break;
 }

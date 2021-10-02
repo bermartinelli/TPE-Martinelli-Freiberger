@@ -21,4 +21,9 @@ class booksView
 
         $this->smarty->display('templates/tableBooks.tpl');
     }
+
+    function showLogin(){
+        $this->smarty->display('templates/login.tpl');
+
+    }
 }
