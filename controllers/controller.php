@@ -18,5 +18,19 @@ class booksController {
         $this->view->showBooks($dataLibros);
     }
 
+    public function showInfoBooks($tableQuery, $queryId){
+        $dataQuery = $this->model->getBooksQueryData($tableQuery, $queryId);
+        $this->view->showData($dataQuery);
+
+    }
+
+    public function showInfoAuthor($tableQuery, $queryId){
+        $dataQuery = $this->model->getAuthorQueryData($tableQuery, $queryId);
+        $this->view->showData($dataQuery);
+
+    }
+    public function genreFilter($tableGenre){
+
+    }
     
 }

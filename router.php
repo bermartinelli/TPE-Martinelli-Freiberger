@@ -30,11 +30,17 @@ switch ($params[0]) {
     case 'logout':
         $authController = new AuthController();
         $authController->logout();
-    case 'autores':
+    case 'autor':
+        $controller = new booksController();
+        $controller->showInfoAuthor($params[0], $params[1]);
         break;
     case 'libros':
+        $controller = new booksController();
+        $controller->showInfoBooks($params[0], $params[1]);
         break;
     case 'genero':
+        $controller = new booksController();
+        $controller->genreFilter($params[0]);
         break;
     default:
         echo '404 - Página no encontrada';
