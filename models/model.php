@@ -14,14 +14,24 @@ class booksModel
     {
         $query = $this->db->prepare('SELECT libros.*, autor.nombre as autor FROM libros JOIN autor ON libros.id_autor_fk = autor.id_autor');
         $query->execute();
-        
-        $booksData = $query->fetchAll(PDO::FETCH_OBJ); 
+
+        $booksData = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $booksData;
     }
 
-    function getBooksQueryData($tableQuery, $queryId){
-        $query = $this->db->prepare('SELECT * FROM ' .$tableQuery . ' WHERE id_libros =' . $queryId);
+    function getBooksQueryData($queryId)
+    {
+        $query = $this->db->prepare('SELECT * FROM libros WHERE id_libros =' . $queryId);
+        $query->execute();
+
+        $queryData = $query->fetchAll(PDO::FETCH_OBJ);
+        return $queryData;
+    }
+
+    function getAuthorQueryData($queryId)
+    {
+        $query = $this->db->prepare('SELECT * FROM autor WHERE id_autor =' . $queryId);
         $query->execute();
 
         $queryData = $query->fetchAll(PDO::FETCH_OBJ);
@@ -29,13 +39,13 @@ class booksModel
         return $queryData;
     }
 
-    function getAuthorQueryData($tableQuery, $queryId){
-        $query = $this->db->prepare('SELECT * FROM ' .$tableQuery . ' WHERE id_autor =' . $queryId);
+    function getFilteredBooks($bookGenre)
+    {
+        $query = $this->db->prepare('SELECT libros.*, autor.nombre as autor FROM libros JOIN autor ON libros.id_autor_fk = autor.id_autor WHERE genero = "'.$bookGenre .'" ');
         $query->execute();
 
         $queryData = $query->fetchAll(PDO::FETCH_OBJ);
 
         return $queryData;
     }
-
 }

@@ -12,25 +12,24 @@ class booksController {
         $this->model = new booksModel();
         $this->view = new booksView();
     }
-
     public function showBooks() {
         $dataLibros = $this->model->getAllData();
         $this->view->showBooks($dataLibros);
     }
 
-    public function showInfoBooks($tableQuery, $queryId){
-        $dataQuery = $this->model->getBooksQueryData($tableQuery, $queryId);
+    public function showInfoBooks($queryId){
+        $dataQuery = $this->model->getBooksQueryData($queryId);
         $this->view->showData($dataQuery);
-
     }
 
-    public function showInfoAuthor($tableQuery, $queryId){
-        $dataQuery = $this->model->getAuthorQueryData($tableQuery, $queryId);
+    public function showInfoAuthor($queryId){
+        $dataQuery = $this->model->getAuthorQueryData($queryId);
         $this->view->showData($dataQuery);
-
     }
-    public function genreFilter($tableGenre){
 
+    public function genreFilter($bookGenre){
+        $dataQuery = $this->model->getFilteredBooks($bookGenre);
+        $this ->view ->showBooks($dataQuery);   
     }
     
 }

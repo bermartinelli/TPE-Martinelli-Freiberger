@@ -13,7 +13,7 @@
   {foreach from=$books item=$bookData}
   <tr>
       <td><a class="navbar-brand" href="libros/{$bookData ->id_libros}">{$bookData ->nombre}</a></td>
-      <td><a class="navbar-brand" href="genero">{$bookData ->genero}</a></td>
+      <td><a class="navbar-brand" href="genero/{$bookData ->genero}">{$bookData ->genero}</a></td>
       <td><a class="navbar-brand" href="autor/{$bookData ->id_autor_fk}">{$bookData->autor}</a></td>
     </tr> 
   {/foreach}
