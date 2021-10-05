@@ -1,5 +1,5 @@
 {include file='templates/header.tpl'}
-
+</head>
 
 <table class="table">
   <thead>
@@ -12,9 +12,9 @@
   <tbody>
   {foreach from=$books item=$bookData}
   <tr>
-      <td>{$bookData ->nombre}</td>
-      <td>{$bookData ->genero}</td>
-      <td>{$bookData->autor}</td>
+      <td><a class="navbar-brand" href="libros">{$bookData ->nombre}</a></td>
+      <td><a class="navbar-brand" href="genero">{$bookData ->genero}</a></td>
+      <td><a class="navbar-brand" href="autores">{$bookData->autor}</a></td>
     </tr> 
   {/foreach}
    

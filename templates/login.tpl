@@ -1,6 +1,7 @@
 {include file='templates/header.tpl'}
+<link rel="stylesheet" href="css/login.css">
 
-
+</head>
 
 <div class="wrapper fadeInDown">
   <div id="formContent">

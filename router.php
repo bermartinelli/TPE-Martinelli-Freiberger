@@ -30,6 +30,12 @@ switch ($params[0]) {
     case 'logout':
         $authController = new AuthController();
         $authController->logout();
+    case 'autores':
+        break;
+    case 'libros':
+        break;
+    case 'genero':
+        break;
     default:
         echo '404 - Página no encontrada';
         break;
