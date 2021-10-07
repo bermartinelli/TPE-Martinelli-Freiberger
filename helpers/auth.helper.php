@@ -8,9 +8,16 @@ class AuthHelper {
         }
     }
 
+    public function checkLogedIn(){
+        if (empty($_SESSION['USER_ID'])) {
+            header("Location: " . BASE_URL);
+            die();
+        }
+    }
+
     public function login($user) {
         $_SESSION['USER_ID'] = $user->id;
-        $_SESSION['USERNAME'] = $user->username;
+        $_SESSION['USER_NAME'] = $user->username;
     }
 
     function logout() {

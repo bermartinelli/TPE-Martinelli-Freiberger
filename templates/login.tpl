@@ -13,7 +13,11 @@
       <input type="password" id="password" class="fadeIn third mt-4" name="password" placeholder="*************">
       <input type="submit" class="fadeIn fourth mt-4" value="Ingresar">
     </form>
-
+    {if $error} 
+        <div class="alert alert-danger mt-3">
+            {$error}
+        </div>
+        {/if}
   </div>
 </div>
 {include file='templates/footer.tpl'}

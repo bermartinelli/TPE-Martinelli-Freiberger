@@ -25,6 +25,7 @@
                         <li class="nav-item">
                         {if isset($smarty.session.USER_ID)} <!-- $_SESSION['USER_ID'] -->
                             <a class="nav-link active" aria-current="page" href="logout">Log Out</a>
+                            <a class="nav-link active" aria-current="page" href="adminHome">Opciones de Administracion</a>
                             {else}
                             <a class="nav-link active" aria-current="page" href="login">Log in</a>
                             {/if}

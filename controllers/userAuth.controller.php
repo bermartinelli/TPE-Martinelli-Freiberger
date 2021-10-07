@@ -14,6 +14,12 @@ class Authcontroller{
         $this->authHelper = new AuthHelper();
     }
 
+    public function showAdminOptions(){
+        $this->authHelper->checkLogedIn();
+
+        
+    }
+
     public function showLogin(){
         $this->view->showLogin();
     }
