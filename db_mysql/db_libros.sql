@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 28-09-2021 a las 18:40:53
+-- Tiempo de generación: 07-10-2021 a las 20:27:26
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -133,6 +133,25 @@ INSERT INTO `libros` (`id_libros`, `nombre`, `genero`, `capitulos`, `editorial`,
 (57, 'Festín de cuervos', 'Literatura fantástica', 1133, 'PLAZA & JANES', 2005, 6),
 (58, 'Danza de dragones', 'Literatura fantástica', 872, 'PLAZA & JANES', 2011, 6);
 
+-- --------------------------------------------------------
+
+--
+-- Estructura de tabla para la tabla `usuarios`
+--
+
+CREATE TABLE `usuarios` (
+  `id` int(11) NOT NULL,
+  `username` varchar(100) NOT NULL,
+  `password` varchar(255) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+--
+-- Volcado de datos para la tabla `usuarios`
+--
+
+INSERT INTO `usuarios` (`id`, `username`, `password`) VALUES
+(1, 'admin', '$2a$12$CG6n2o8hEfD/vTa/KC.T.enw/VuOsXm.JngiG94xm5oYFi.1hH22C');
+
 --
 -- Índices para tablas volcadas
 --
@@ -151,6 +170,12 @@ ALTER TABLE `libros`
   ADD KEY `id_autor_fk` (`id_autor_fk`);
 
 --
+-- Indices de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  ADD PRIMARY KEY (`id`);
+
+--
 -- AUTO_INCREMENT de las tablas volcadas
 --
 
@@ -165,6 +190,12 @@ ALTER TABLE `autor`
 --
 ALTER TABLE `libros`
   MODIFY `id_libros` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+
+--
+-- AUTO_INCREMENT de la tabla `usuarios`
+--
+ALTER TABLE `usuarios`
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
 
 --
 -- Restricciones para tablas volcadas
