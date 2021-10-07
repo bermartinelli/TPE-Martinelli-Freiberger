@@ -1,10 +1,7 @@
-
+{include file='templates/header.tpl'}
 </head>
 
-{foreach from=$data item=$queryData}
-    {if isset($queryData ->capitulos)} <!-- Verifico si es un Libro o un Autor y muestro la Tabla correspondiente-->
-      {include file='templates/header.tpl'}
-      
+{foreach from=$data item=$queryData}     
       <table class="table">
   <thead>
     <tr>
@@ -25,37 +22,7 @@
     </tr> 
    
   </tbody>
-</table>
-
-  {else}
-    <div class="containter">
-      <table class="table">
-        <thead>
-          <tr>
-            <th scope="col">{$cabeceraAutor_1}</th>
-            <th scope="col">{$cabeceraAutor_2}</th>
-            {if ($queryData ->muerte != '0000-00-00')}
-            <th scope="col">{$cabeceraAutor_3}</th>
-            {/if}
-            <th scope="col">{$cabeceraAutor_4}</th>
-          </tr>
-        </thead>
-        <tbody>
-          <tr>
-            <td>{$queryData ->nombre}</td>
-            <td>{$queryData ->nacimiento}</td>
-            {if ($queryData ->muerte != '0000-00-00')}
-              <td>{$queryData ->muerte}</td>
-            {/if}
-            <td>{$queryData ->nacionalidad}</td>
-          </tr> 
-          
-        </tbody>
-      </table>
-    </div>
-  {/if}
-    
-      
+</table>            
   {/foreach}
 
 
