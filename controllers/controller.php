@@ -11,6 +11,8 @@ class booksController {
     public function __construct() {
         $this->model = new booksModel();
         $this->view = new booksView();
+
+        
     }
     public function showBooks() {
         $dataLibros = $this->model->getAllData();
@@ -19,7 +21,7 @@ class booksController {
 
     public function showInfoBooks($queryId){
         $dataQuery = $this->model->getBooksQueryData($queryId);
-        $this->view->showData($dataQuery);
+        $this->view->showData($dataQuery);  
     }
 
     public function showInfoAuthor($queryId){
