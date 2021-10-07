@@ -6,12 +6,12 @@ class booksView
 {
     private $smarty;
 
-    function __construct()
+    public function __construct()
     {
         $this->smarty = new Smarty();
     }
 
-    function showBooks($booksData)
+    public function showBooks($booksData)
     {
         $this->smarty->assign('cabeceraCol_1', 'Nombre del Libro');
         $this->smarty->assign('cabeceraCol_2', 'Genero');
@@ -22,17 +22,28 @@ class booksView
         $this->smarty->display('templates/tableBooks.tpl');
     }
 
-    function showData($dataQuery){
+    public function showAuthorData($dataQuery){
+        $this->smarty->assign('cabeceraAutor_1', 'Nombre');
+        $this->smarty->assign('cabeceraAutor_2', 'Fecha de Nacimiento');
+        $this->smarty->assign('cabeceraAutor_3', 'Fecha de Muerte');
+        $this->smarty->assign('cabeceraAutor_4', 'Nacionalidad');
+
+        $this->smarty->assign('cabeceraAutor_5', 'Libros del Autor');
+        $this->smarty->assign('cabeceraAutor_6', 'Genero');
+     
+        $this->smarty->assign('data', $dataQuery);
+
+        $this->smarty->display('templates/authorDataTable.tpl');
+    }
+
+    public function showData($dataQuery){
         $this->smarty->assign('cabeceraCol_1', 'Nombre del Libro');
         $this->smarty->assign('cabeceraCol_2', 'Genero');
         $this->smarty->assign('cabeceraCol_3', 'Capitulos');
         $this->smarty->assign('cabeceraCol_4', 'Editorial');
         $this->smarty->assign('cabeceraCol_5', 'Año de publicacion');
 
-        $this->smarty->assign('cabeceraAutor_1', 'Nombre');
-        $this->smarty->assign('cabeceraAutor_2', 'Fecha de Nacimiento');
-        $this->smarty->assign('cabeceraAutor_3', 'Fecha de Muerte');
-        $this->smarty->assign('cabeceraAutor_4', 'Nacionalidad');
+       
 
         $this->smarty->assign('data', $dataQuery);
 

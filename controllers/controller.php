@@ -32,11 +32,9 @@ class booksController
 
     public function showInfoAuthor($queryId)
     {
-        $dataAuthor = $this->model->getBooksByAuthor($queryId);
-        $this->view->showBooks($dataAuthor);
+        $booksByAuthor = $this->model->getAuthorQueryData($queryId);
 
-        $dataQuery = $this->model->getAuthorQueryData($queryId);
-        $this->view->showData($dataQuery);
+        $this->view->showAuthorData($booksByAuthor);
     }
 
     public function genreFilter($bookGenre)
