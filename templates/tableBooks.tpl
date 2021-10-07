@@ -1,6 +1,5 @@
 {include file='templates/header.tpl'}
 </head>
-
 <table class="table">
   <thead>
     <tr>
@@ -20,6 +19,7 @@
    
   </tbody>
 </table>
+
 
 
 {include file='templates/footer.tpl'}

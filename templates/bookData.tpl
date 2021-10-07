@@ -1,4 +1,4 @@
-
+<!-- COMBINAR TABLAS DE EL AUTOR Y LOS LIBROS DE ESE AUTOR-->
 </head>
 
 {foreach from=$data item=$queryData}
