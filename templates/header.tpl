@@ -24,8 +24,8 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         <li class="nav-item">
                         {if isset($smarty.session.USER_ID)} <!-- $_SESSION['USER_ID'] -->
-                            <a class="nav-link active" aria-current="page" href="logout">Log Out</a>
-                            <a class="nav-link active" aria-current="page" href="adminHome">Opciones de Administracion</a>
+                            <a class="nav-link active" aria-current="page" href="logout">Log Out</a> <!-- Verifico que la session este iniciada para mostrar otras opciones en la barra de navegacion-->
+                            <a class="nav-link active" aria-current="page" href="adminHome">Opciones de Administracion</a> 
                             {else}
                             <a class="nav-link active" aria-current="page" href="login">Log in</a>
                             {/if}
