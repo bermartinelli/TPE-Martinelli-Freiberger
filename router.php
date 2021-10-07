@@ -42,10 +42,16 @@ switch ($params[0]) {
         $controller = new booksController();
         $controller->genreFilter($params[1]);
         break;
-    case 'adminHome':
-        $controller = new Authcontroller();
+    case 'admin':
+        $controller = new booksController();
         $controller->showAdminOptions();
         break;
+    case 'deleteBook':
+        $controller = new booksController();
+        $controller->deleteBook($params[1]);
+    case 'deleteAuthor':
+        $controller = new booksController();
+        $controller->deleteAuthor($params[1]);
     default:
         echo '404 - Página no encontrada';
         break;

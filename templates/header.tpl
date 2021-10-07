@@ -22,14 +22,13 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        <li class="nav-item">
                         {if isset($smarty.session.USER_ID)} <!-- $_SESSION['USER_ID'] -->
-                            <a class="nav-link active" aria-current="page" href="logout">Log Out</a>
-                            <a class="nav-link active" aria-current="page" href="adminHome">Opciones de Administracion</a>
+                           <li class="nav-item"> <a class="nav-link active" aria-current="page" href="logout">Log Out</a> </li>
+                           <li class="nav-item"> <a class="nav-link active" aria-current="page" href="admin">Opciones de Administracion</a> </li>
                             {else}
-                            <a class="nav-link active" aria-current="page" href="login">Log in</a>
+                           <li class="nav-item"> <a class="nav-link active" aria-current="page" href="login">Log in</a> </li>
                             {/if}
-                        </li>
+                       
                     </ul>
                 </div>
             </div>
