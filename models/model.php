@@ -48,4 +48,14 @@ class booksModel
 
         return $queryData;
     }
+
+    function getBooksByAuthor($queryId)
+    {
+        $query = $this->db->prepare('SELECT libros.*, autor.nombre as autor FROM libros JOIN autor ON libros.id_autor_fk = autor.id_autor WHERE autor.id_autor ='.$queryId);
+        $query->execute();
+
+        $queryData = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $queryData;
+    }
 }

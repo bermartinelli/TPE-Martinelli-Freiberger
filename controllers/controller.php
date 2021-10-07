@@ -23,13 +23,16 @@ class booksController {
     }
 
     public function showInfoAuthor($queryId){
+        $dataAuthor = $this->model ->  getBooksByAuthor($queryId);
+        $this->view->showBooks($dataAuthor);
+
         $dataQuery = $this->model->getAuthorQueryData($queryId);
         $this->view->showData($dataQuery);
     }
 
     public function genreFilter($bookGenre){
         $dataQuery = $this->model->getFilteredBooks($bookGenre);
-        $this ->view ->showBooks($dataQuery);   
+        $this ->view ->showBooks($dataQuery);
     }
     
 }
