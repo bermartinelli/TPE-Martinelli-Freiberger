@@ -1,5 +1,5 @@
 <?php
-require_once 'models/user.model.php';
+require_once 'models/admin.model.php';
 require_once 'models/model.php';
 require_once 'views/login.view.php';
 require_once 'helpers/auth.helper.php';
