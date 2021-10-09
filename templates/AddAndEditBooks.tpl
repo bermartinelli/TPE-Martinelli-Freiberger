@@ -1,12 +1,13 @@
 {include file='templates/header.tpl'}
 
    
-   <form>
-        <select class="form-select" aria-label="Default select example">
-        <option selected>Open this select menu</option>
-        <option value="1">One</option>
-        <option value="2">Two</option>
-        <option value="3">Three</option>
+   <form method="POST" action="addBook">
+        <select class="form-select mt-2 mb-2" aria-label="Default select example">
+        <option selected>Elija el autor del Libro</option>
+        {foreach from=$authorsData item=$author}
+            <option value="1">{$author->nombre}</option>
+        {/foreach}
+        
         </select>
 
         <div class="mb-3">

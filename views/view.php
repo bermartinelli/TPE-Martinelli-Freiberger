@@ -51,8 +51,10 @@ class booksView
         $this->smarty->display('templates/bookData.tpl');
     }
 
-    function showAddAndEdit($dataLibros) {
-        $this->smarty->assign('books', $dataLibros);
+    function showAddAndEdit($dataLibros,$dataAutores) {
+        $this->smarty->assign('authorsData', $dataAutores);
+        $this->smarty->assign('booksData', $dataLibros);
+
         $this->smarty->display('templates/AddAndEditBooks.tpl');
     }
 

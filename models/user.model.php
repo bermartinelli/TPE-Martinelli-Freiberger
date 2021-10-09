@@ -14,4 +14,16 @@ class UserModel {
         return $user;
     }
 
+    function eraseBook($id)
+    {
+        $query = $this->db->prepare('DELETE FROM libros WHERE id_libros= ?');
+        $query->execute([$id]);
+    }
+
+    function eraseAuthor($id)
+    {
+        $query = $this->db->prepare('DELETE FROM autor WHERE id_autor= ?');
+        $query->execute([$id]);
+    }
+
 }

@@ -19,6 +19,15 @@ class booksModel
 
         return $booksData;
     }
+    function getAuthorsData()
+    {
+        $query = $this->db->prepare('SELECT * FROM autor');
+        $query->execute();
+
+        $authorData = $query->fetchAll(PDO::FETCH_OBJ);
+
+        return $authorData;
+    }
 
     function getBooksQueryData($queryId)
     {
@@ -41,7 +50,7 @@ class booksModel
 
     function getFilteredBooks($bookGenre)
     {
-        $query = $this->db->prepare('SELECT libros.*, autor.nombre as autor FROM libros JOIN autor ON libros.id_autor_fk = autor.id_autor WHERE genero = "'.$bookGenre .'" ');
+        $query = $this->db->prepare('SELECT libros.*, autor.nombre as autor FROM libros JOIN autor ON libros.id_autor_fk = autor.id_autor WHERE genero = "' . $bookGenre . '" ');
         $query->execute();
 
         $queryData = $query->fetchAll(PDO::FETCH_OBJ);
@@ -51,7 +60,7 @@ class booksModel
 
     function getBooksByAuthor($queryId)
     {
-        $query = $this->db->prepare('SELECT libros.*, autor.nombre as autor FROM libros JOIN autor ON libros.id_autor_fk = autor.id_autor WHERE autor.id_autor ='.$queryId);
+        $query = $this->db->prepare('SELECT libros.*, autor.nombre as autor FROM libros JOIN autor ON libros.id_autor_fk = autor.id_autor WHERE autor.id_autor =' . $queryId);
         $query->execute();
 
         $queryData = $query->fetchAll(PDO::FETCH_OBJ);
@@ -59,13 +68,5 @@ class booksModel
         return $queryData;
     }
 
-    function eraseBook($id) {
-        $query = $this->db->prepare('DELETE FROM libros WHERE id_libros= ?');
-        $query-> execute([$id]);
-    }
-
-    function eraseAuthor($id) {
-        $query = $this->db->prepare('DELETE FROM autor WHERE id_autor= ?');
-        $query-> execute([$id]);
-    }
+    
 }

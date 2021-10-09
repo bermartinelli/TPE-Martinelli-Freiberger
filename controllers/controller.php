@@ -43,19 +43,5 @@ class booksController
         $this->view->showBooks($dataQuery);
     }
 
-    public function showAdminOptions(){
-        $this->authHelper->checkLogedIn();
-        $dataLibros = $this->model->getAllData();
-        $this->view->showAddAndEdit($dataLibros);     
-    }
-
-    public function deleteBook($id) {
-        $this->model->eraseBook($id);
-        header("Location: " . BASE_URL);
-    }
-
-    public function deleteAuthor($id) {
-        $this->model->eraseAuthor($id);
-        header("Location: " . BASE_URL);
-    }
+    
 }

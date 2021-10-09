@@ -1,6 +1,6 @@
 <?php
 require_once 'controllers/controller.php';
-require_once 'controllers/userAuth.controller.php';
+require_once 'controllers/admin.controller.php';
 
 // defino la base url para la construccion de links con urls semánticas
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -16,11 +16,11 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'verify':
-        $authController = new AuthController();
+        $authController = new adminController();
         $authController->login();
         break;
     case 'login':
-        $authController = new AuthController();
+        $authController = new adminController();
         $authController->showLogin();
         break;
     case 'home':
@@ -28,7 +28,7 @@ switch ($params[0]) {
         $controller->showBooks();
         break;
     case 'logout':
-        $authController = new AuthController();
+        $authController = new adminController();
         $authController->logout();
     case 'autor':
         $controller = new booksController();
@@ -43,15 +43,17 @@ switch ($params[0]) {
         $controller->genreFilter($params[1]);
         break;
     case 'admin':
-        $controller = new booksController();
+        $controller = new adminController();
         $controller->showAdminOptions();
         break;
     case 'deleteBook':
-        $controller = new booksController();
+        $controller = new adminController();
         $controller->deleteBook($params[1]);
     case 'deleteAuthor':
-        $controller = new booksController();
+        $controller = new adminController();
         $controller->deleteAuthor($params[1]);
+    case 'addBook':
+        $controller = new booksController();
     default:
         echo '404 - Página no encontrada';
         break;
