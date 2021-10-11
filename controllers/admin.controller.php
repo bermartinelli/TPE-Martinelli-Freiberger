@@ -78,6 +78,8 @@ class adminController
 
     public function addBook()
     {
+        $this->authHelper->checkLogedIn();
+
         if (!empty($_POST['nombre']) && !empty($_POST['genero']) && !empty($_POST['capitulos']) && !empty($_POST['editorial']) && !empty($_POST['anio'])) {
             $nombre = $_POST['nombre'];
             $genero = $_POST['genero'];
@@ -93,6 +95,7 @@ class adminController
 
     public function editBook()
     {
+        $this->authHelper->checkLogedIn();
         if (!empty($_POST['nombre']) && !empty($_POST['genero']) && !empty($_POST['capitulos']) && !empty($_POST['editorial']) && !empty($_POST['anio'])) {
             $id_libros = $_POST['idLibro'];
             $nombre = $_POST['nombre'];
@@ -109,6 +112,7 @@ class adminController
     }
 
     public function AddAuthor() {
+        $this->authHelper->checkLogedIn();
         if (!empty($_POST['nombre']) && !empty($_POST['fecha_nacimiento']) && !empty($_POST['nacionalidad'])) {
             $nombre = $_POST['nombre'];
             $nacimiento = $_POST['fecha_nacimiento'];
@@ -121,6 +125,7 @@ class adminController
     }
 
     public function editAuthor() {
+        $this->authHelper->checkLogedIn();
         if (!empty($_POST['id_libro']) && !empty($_POST['nombre']) && !empty($_POST['fecha_nacimiento']) && !empty($_POST['nacionalidad'])) {
             $id_autor = $_POST['id_libro'];
             $nombre = $_POST['nombre'];
@@ -135,12 +140,14 @@ class adminController
 
     public function deleteBook($id)
     {
+        $this->authHelper->checkLogedIn();
         $this->adminModel->eraseBook($id);
         header("Location: " . BASE_URL);
     }
 
     public function deleteAuthor($id)
     {
+        $this->authHelper->checkLogedIn();
         $this->adminModel->eraseAuthor($id);
         header("Location: " . BASE_URL);
     }
