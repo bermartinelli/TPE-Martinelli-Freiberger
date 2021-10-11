@@ -43,9 +43,21 @@ switch ($params[0]) {
         $controller = new booksController();
         $controller->genreFilter($params[1]);
         break;
-    case 'admin':
+    case 'agregarLibro':
         $adminController = new adminController();
         $adminController->showAdminOptions();
+        break;
+    case 'EditarLibro':
+        $adminController = new adminController();
+        $adminController->showEditBooks();
+        break;
+    case 'agregarAutor':
+        $adminController = new adminController();
+        $adminController->showAddAuthor();
+        break;
+    case 'EditarAutor':
+        $adminController = new adminController();
+        $adminController->showEditAuthor();
         break;
     case 'deleteBook':
         $adminController = new adminController();
@@ -59,6 +71,16 @@ switch ($params[0]) {
         $adminController = new adminController();
         $adminController->addBook();
         break;
+    case 'editBook':
+        $adminController = new adminController();
+        $adminController->editBook();
+        break;
+    case 'addAuthor':
+        $adminController = new adminController();
+        $adminController->addAuthor();
+    case 'editAuthor':
+        $adminController = new adminController();
+        $adminController->editAuthor();
     default:
         echo '404 - Página no encontrada';
         break;

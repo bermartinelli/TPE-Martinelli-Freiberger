@@ -23,8 +23,21 @@
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         {if isset($smarty.session.USER_ID)} <!-- $_SESSION['USER_ID'] -->
-                           <li class="nav-item"> <a class="nav-link active" aria-current="page" href="logout">Log Out</a> </li>
-                           <li class="nav-item"> <a class="nav-link active" aria-current="page" href="admin">Opciones de Administracion</a> </li>
+                           <li class="nav-item dropdown">
+                                <a class="nav-link dropdown-toggle" href="{BASE_URL}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                    Opciones de Administracion
+                                </a>
+                                <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <li><a class="dropdown-item" href="{BASE_URL}agregarLibro">Agregar libro</a></li>
+                                    <li><a class="dropdown-item" href="{BASE_URL}EditarLibro">Editar libro</a></li>
+                                    <li><hr class="dropdown-divider"></li>
+                                    <li><a class="dropdown-item" href="{BASE_URL}agregarAutor">Agregar autor</a></li>
+                                    <li><a class="dropdown-item" href="{BASE_URL}EditarAutor">Editar autor</a></li>
+                                </ul>
+                            </li>
+
+                            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="logout">Log Out</a> </li>   
+
                             {else}
                            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="login">Log in</a> </li>
                             {/if}

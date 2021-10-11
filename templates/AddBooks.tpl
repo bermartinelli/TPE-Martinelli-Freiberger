@@ -1,6 +1,7 @@
 {include file='templates/header.tpl'}
 
-   
+   <h2>AGREGAR LIBRO:</h2>
+
    <form method="POST" action="addBook">
         <div class="mb-3 mt-2">
             <label for="exampleFormControlInput1" class="form-label">Nombre del libro</label>

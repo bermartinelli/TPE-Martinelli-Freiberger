@@ -51,11 +51,27 @@ class booksView
         $this->smarty->display('templates/bookData.tpl');
     }
 
-    function showAddAndEdit($dataLibros,$dataAutores) {
+    function showAddBook($dataLibros,$dataAutores) {
         $this->smarty->assign('authorsData', $dataAutores);
         $this->smarty->assign('booksData', $dataLibros);
 
-        $this->smarty->display('templates/AddAndEditBooks.tpl');
+        $this->smarty->display('templates/Addbooks.tpl');
     }
 
+    function showEditBook($dataLibros,$dataAutores) {
+        $this->smarty->assign('authorsData', $dataAutores);
+        $this->smarty->assign('booksData', $dataLibros);
+
+        $this->smarty->display('templates/Editbooks.tpl');
+    }
+
+    function showAddAuthors() {
+        $this->smarty-> display('templates/addAuthors.tpl');
+    }
+
+    function showEditAuthor($dataAutores) {
+        $this->smarty->assign('authorsData', $dataAutores);
+
+        $this->smarty->display('templates/editAuthor.tpl');
+    }
 }
