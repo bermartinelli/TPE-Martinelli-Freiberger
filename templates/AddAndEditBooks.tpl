@@ -2,22 +2,42 @@
 
    
    <form method="POST" action="addBook">
-        <select class="form-select mt-2 mb-2" aria-label="Default select example">
+        <div class="mb-3 mt-2">
+            <label for="exampleFormControlInput1" class="form-label">Nombre del libro</label>
+            <input type="text" class="form-control" name="nombre" id="exampleFormControlInput1" placeholder="Ingrese el nombre">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1"  class="form-label">Genero</label>
+            <input type="text" class="form-control" name="genero" id="exampleFormControlInput1" placeholder="Ingrese el genero">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Cantidad de capitulos</label>
+            <input type="number" class="form-control" name="capitulos" id="exampleFormControlInput1" placeholder="Ingrese la cantidad de Capitulos">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Editorial</label>
+            <input type="text" class="form-control" name="editorial" id="exampleFormControlInput1" placeholder="Ingrese la editorial">
+        </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Año de publicacion</label>
+            <input type="number" class="form-control" name="anio" id="exampleFormControlInput1" placeholder="Ingrese el año de publicacion">
+        </div>
+
+        <select class="form-select mt-2 mb-4" name="autor" aria-label="Default select example">
         <option selected>Elija el autor del Libro</option>
         {foreach from=$authorsData item=$author}
-            <option value="1">{$author->nombre}</option>
+            <option value={$author->id_autor}>{$author->nombre}</option>
         {/foreach}
         
         </select>
 
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Genero</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="Introduzca el genero">
+        <div class="col-auto">
+            <button type="submit" class="btn btn-primary mb-3">Agregar Libro</button>
         </div>
 
-        <div class="mb-3">
-            <label for="exampleFormControlInput1" class="form-label">Autor</label>
-            <input type="email" class="form-control" id="exampleFormControlInput1" placeholder="">
-        </div>
 
     </form>

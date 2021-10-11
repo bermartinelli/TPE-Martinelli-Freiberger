@@ -16,20 +16,21 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'verify':
-        $authController = new adminController();
-        $authController->login();
+        $adminController = new adminController();
+        $adminController->login();
         break;
     case 'login':
-        $authController = new adminController();
-        $authController->showLogin();
+        $adminController = new adminController();
+        $adminController->showLogin();
         break;
     case 'home':
         $controller = new booksController();
         $controller->showBooks();
         break;
     case 'logout':
-        $authController = new adminController();
-        $authController->logout();
+        $adminController = new adminController();
+        $adminController->logout();
+        break;
     case 'autor':
         $controller = new booksController();
         $controller->showInfoAuthor($params[1]);
@@ -43,17 +44,21 @@ switch ($params[0]) {
         $controller->genreFilter($params[1]);
         break;
     case 'admin':
-        $controller = new adminController();
-        $controller->showAdminOptions();
+        $adminController = new adminController();
+        $adminController->showAdminOptions();
         break;
     case 'deleteBook':
-        $controller = new adminController();
-        $controller->deleteBook($params[1]);
+        $adminController = new adminController();
+        $adminController->deleteBook($params[1]);
+        break;
     case 'deleteAuthor':
-        $controller = new adminController();
-        $controller->deleteAuthor($params[1]);
+        $adminController = new adminController();
+        $adminController->deleteAuthor($params[1]);
+        break;
     case 'addBook':
-        $controller = new booksController();
+        $adminController = new adminController();
+        $adminController->addBook();
+        break;
     default:
         echo '404 - Página no encontrada';
         break;

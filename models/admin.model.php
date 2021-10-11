@@ -1,13 +1,16 @@
 <?php
 
-class UserModel {
+class AdminModel
+{
     private $db;
 
-    public function __construct() {
-        $this->db = new PDO('mysql:host=localhost;'.'dbname=db_libros;charset=utf8', 'root', '');
+    public function __construct()
+    {
+        $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_libros;charset=utf8', 'root', '');
     }
 
-    function getUser($username) {
+    function getUser($username)
+    {
         $query = $this->db->prepare('SELECT * FROM usuarios WHERE username = ?');
         $query->execute([$username]);
         $user = $query->fetch(PDO::FETCH_OBJ);
@@ -26,4 +29,9 @@ class UserModel {
         $query->execute([$id]);
     }
 
+    function addBook($nombre, $genero, $capitulos, $editorial, $anio, $autor)
+    {
+        $query = $this->db->prepare('INSERT INTO libros (nombre, genero, capitulos, editorial, anio, id_autor_fk) VALUES (? , ? , ? , ? , ? , ? )');
+        $query->execute([$nombre, $genero, $capitulos, $editorial, $anio, $autor]);
+    }
 }
