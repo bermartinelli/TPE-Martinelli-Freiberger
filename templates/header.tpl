@@ -24,7 +24,7 @@
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
                         {if isset($smarty.session.USER_ID)} <!-- $_SESSION['USER_ID'] -->
                            <li class="nav-item dropdown">
-                                <a class="nav-link dropdown-toggle" href="{BASE_URL}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <a class="nav-link dropdown-toggle" href="{BASE_URL}autor" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                                     Opciones de Administracion
                                 </a>
                                 <ul class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
