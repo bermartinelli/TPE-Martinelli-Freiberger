@@ -29,7 +29,7 @@
                                     <h6 class="modal-title">CONFIRMAR</h5> 
                                 </div>
                                 <div class="modal-body">
-                                <p  class="text-center">¿Estás seguro que deseas eliminar el libro <strong>{$bookData ->nombre}</strong>?</p>
+                                <p  class="text-center">¿Estás seguro que deseas eliminar el libro <strong>{$bookData ->nombre}</strong> de {$bookData->autor}?</p>
                                 </div>
                                 <div class="modal-footer">
                                     <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
