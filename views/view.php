@@ -11,6 +11,17 @@ class booksView
         $this->smarty = new Smarty();
     }
 
+    public function showAuthors($dataAutores){
+        $this->smarty->assign('cabeceraAutor_1', 'Nombre');
+        $this->smarty->assign('cabeceraAutor_2', 'Fecha de Nacimiento');
+        $this->smarty->assign('cabeceraAutor_3', 'Fecha de Muerte');
+        $this->smarty->assign('cabeceraAutor_4', 'Nacionalidad');
+
+        $this->smarty->assign('authors', $dataAutores);
+
+        $this->smarty->display('templates/authors.tpl');
+    }
+
     public function showBooks($booksData)
     {
         $this->smarty->assign('cabeceraCol_1', 'Nombre del Libro');

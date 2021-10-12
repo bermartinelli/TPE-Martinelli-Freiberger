@@ -35,6 +35,10 @@ switch ($params[0]) {
         $controller = new booksController();
         $controller->showInfoAuthor($params[1]);
         break;
+    case 'autores':
+        $controller = new booksController();
+        $controller->showAuthors();
+        break;
     case 'libros':
         $controller = new booksController();
         $controller->showInfoBooks($params[1]);

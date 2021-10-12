@@ -42,6 +42,7 @@
                             {else}
                            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="login">Log in</a> </li>
                             {/if}
+                            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="autores">Autores</a> </li>
                        
                     </ul>
                 </div>
