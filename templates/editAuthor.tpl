@@ -14,12 +14,12 @@
 
         <div class="mb-3 mt-2">
             <label for="exampleFormControlInput1" class="form-label">Nuevo nombre del Autor</label>
-            <input type="text" class="form-control" name="nombre" id="exampleFormControlInput1" placeholder="Ingrese el nombre modificado">
+            <input type="text" class="form-control" name="nombre" id="exampleFormControlInput1" placeholder="Ingrese el nombre modificado" required>
         </div>
 
         <div class="mb-3">
             <label for="exampleFormControlInput1"  class="form-label">Nacimiento</label>
-            <input type="date" class="form-control" name="fecha_nacimiento" id="exampleFormControlInput1" placeholder="Fecha de nacimiento">
+            <input type="date" class="form-control" name="fecha_nacimiento" id="exampleFormControlInput1" placeholder="Fecha de nacimiento" required>
         </div>
 
         <div class="mb-3">
@@ -29,7 +29,7 @@
 
         <div class="mb-3">
             <label for="exampleFormControlInput1" class="form-label">Nacionalidad</label>
-            <input type="text" class="form-control" name="nacionalidad" id="exampleFormControlInput1" placeholder="Ingrese la nacionalidad">
+            <input type="text" class="form-control" name="nacionalidad" id="exampleFormControlInput1" placeholder="Ingrese la nacionalidad" required>
         </div>
 
         <div class="col-auto">
