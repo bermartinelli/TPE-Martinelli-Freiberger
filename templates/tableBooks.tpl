@@ -16,27 +16,28 @@
                     {if isset($smarty.session.USER_ID)}
                         {*<button class="btn btn-danger rounded-pill btn-sm"><a href="deleteBook/{$bookData->id_libros}" class="text-decoration-none text-white">BORRAR</a></button>*}
 
-                        <button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#Modal{$bookData ->id_libros}">
                         BORRAR 
                         </button>
 
                         <!-- Modal -->
-                        <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                        <div class="modal-dialog modal-dialog-centered">
-                            <div class="modal-content">
-                            <div class="modal-header">
-                                <h6 class="modal-title">CONFIRMAR</h5> 
+    
+                            <div class="modal fade" id="Modal{$bookData ->id_libros}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                            <div class="modal-dialog modal-dialog-centered">
+                                <div class="modal-content">
+                                <div class="modal-header">
+                                    <h6 class="modal-title">CONFIRMAR</h5> 
+                                </div>
+                                <div class="modal-body">
+                                <p  class="text-center">¿Estás seguro que deseas eliminar el libro <strong>{$bookData ->nombre}</strong>?</p>
+                                </div>
+                                <div class="modal-footer">
+                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
+                                    <button type="button" class="btn btn-primary"><a href="deleteBook/{$bookData->id_libros}" class="text-decoration-none text-white">BORRAR LIBRO</a></button>
+                                </div>
+                                </div>
                             </div>
-                            <div class="modal-body">
-                            <p  class="text-center">¿Estás seguro que deseas eliminar el libro <strong>{$bookData ->nombre}</strong>?</p>
                             </div>
-                            <div class="modal-footer">
-                                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>
-                                <button type="button" class="btn btn-primary"><a href="deleteBook/{$bookData->id_libros}" class="text-decoration-none text-white">BORRAR LIBRO</a></button>
-                            </div>
-                            </div>
-                        </div>
-                        </div>
 
                     {/if}
                 </td>
