@@ -78,9 +78,11 @@ switch ($params[0]) {
     case 'addAuthor':
         $adminController = new adminController();
         $adminController->addAuthor();
+        break;
     case 'editAuthor':
         $adminController = new adminController();
         $adminController->editAuthor();
+        break;
     default:
         echo '404 - Página no encontrada';
         break;

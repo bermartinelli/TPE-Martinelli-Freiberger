@@ -125,9 +125,6 @@ class adminController
     }
 
     public function editAuthor() {
-       
-        
-
         if (isset($_POST['update_button'])) {
             $this->authHelper->checkLogedIn();
             if (!empty($_POST['id_autor']) && !empty($_POST['nombre']) && !empty($_POST['fecha_nacimiento']) && !empty($_POST['nacionalidad'])) {
