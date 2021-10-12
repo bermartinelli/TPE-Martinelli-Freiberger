@@ -1,5 +1,5 @@
 {include file='templates/header.tpl'}
-
+</head>
    
     <h2>EDITAR AUTOR:</h2>
 

@@ -1,4 +1,5 @@
 {include file='templates/header.tpl'}
+</head>
 
    <h2>AGREGAR LIBRO:</h2>
 
