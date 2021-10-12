@@ -55,7 +55,7 @@
         <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"> x </button>
       </div>
       <div class="modal-body">
-      <p class="text-center"> ¿Confirma que desea elimnar al autor y <strong>todos sus libros</strong>?</p>
+      <p class="text-center"> ¿Confirma que desea elimnar al autor y <strong>todos sus libros</strong>? </p>
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
