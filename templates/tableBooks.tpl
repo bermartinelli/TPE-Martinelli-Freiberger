@@ -38,7 +38,6 @@
                                 </div>
                             </div>
                             </div>
-                            
 
                     {/if}
                 </td>
@@ -53,5 +52,7 @@
     
     </tbody>
 </table>
+
+
 
 {include file='templates/footer.tpl'}
