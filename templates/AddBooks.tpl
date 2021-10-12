@@ -38,6 +38,10 @@
         </select>
 
         <div class="col-auto">
+            <div class="alert alert-primary" role="alert">
+            Si buscás un autor que no está en la lista, primero debe agregarlo desde la pestaña de <a href="agregarAutor">Nuevo Autor</a>
+            </div>
+            
             <button type="submit" class="btn btn-primary mb-3">Agregar Libro</button>
         </div>
 

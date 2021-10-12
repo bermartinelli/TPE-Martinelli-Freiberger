@@ -43,9 +43,9 @@
                 </td>
                 <td><a class="navbar-brand" href="{BASE_URL}genero/{$bookData ->genero}">{$bookData ->genero}</a></td>
                 <td><a class="navbar-brand" href="{BASE_URL}autor/{$bookData ->id_autor_fk}">{$bookData->autor}</a>
-                    {if isset($smarty.session.USER_ID)}
+                   {* {if isset($smarty.session.USER_ID)}
                         <button class="btn btn-danger rounded-pill btn-sm"><a href="deleteAuthor/{$bookData->autor}" class="text-decoration-none text-white">BORRAR </a></button>
-                    {/if}
+                    {/if} *}
                 </td>
             </tr> 
         {/foreach}

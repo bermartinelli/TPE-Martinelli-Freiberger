@@ -125,16 +125,30 @@ class adminController
     }
 
     public function editAuthor() {
-        $this->authHelper->checkLogedIn();
-        if (!empty($_POST['id_libro']) && !empty($_POST['nombre']) && !empty($_POST['fecha_nacimiento']) && !empty($_POST['nacionalidad'])) {
-            $id_autor = $_POST['id_libro'];
-            $nombre = $_POST['nombre'];
-            $nacimiento = $_POST['fecha_nacimiento'];
-            $muerte = $_POST['fecha_muerte'];
-            $nacionalidad = $_POST['nacionalidad'];
+       
+        
 
-        $this->adminModel-> editAuthor($nombre, $nacimiento, $muerte, $nacionalidad, $id_autor);
-        header("Location: " . BASE_URL );
+        if (isset($_POST['update_button'])) {
+            $this->authHelper->checkLogedIn();
+            if (!empty($_POST['id_autor']) && !empty($_POST['nombre']) && !empty($_POST['fecha_nacimiento']) && !empty($_POST['nacionalidad'])) {
+                $id_autor = $_POST['id_autor'];
+                $nombre = $_POST['nombre'];
+                $nacimiento = $_POST['fecha_nacimiento'];
+                $muerte = $_POST['fecha_muerte'];
+                $nacionalidad = $_POST['nacionalidad'];
+
+                $this->adminModel-> editAuthor($nombre, $nacimiento, $muerte, $nacionalidad, $id_autor);
+                header("Location: " . BASE_URL );
+            }
+
+        } else if (isset($_POST['delete_button'])) {
+            $this->authHelper->checkLogedIn();
+            if (!empty($_POST['id_autor'])) {
+                $id_autor = $_POST['id_autor'];
+
+                $this->adminModel->eraseAuthor($id_autor);
+                header("Location: " . BASE_URL);
+            }
         }
     }
 
