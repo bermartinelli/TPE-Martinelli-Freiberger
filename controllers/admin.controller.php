@@ -142,7 +142,6 @@ class adminController
             $this->authHelper->checkLogedIn();
             if (!empty($_POST['id_autor'])) {
                 $id_autor = $_POST['id_autor'];
-
                 $this->adminModel->eraseAuthor($id_autor);
                 header("Location: " . BASE_URL);
             }
