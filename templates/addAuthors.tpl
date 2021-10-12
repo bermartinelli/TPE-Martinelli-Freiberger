@@ -30,3 +30,5 @@
 
 
     </form>
+
+    {include file='templates/footer.tpl'}
