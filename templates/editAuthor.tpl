@@ -1,11 +1,11 @@
 {include file='templates/header.tpl'}
 </head>
    
-    <h2>EDITAR AUTOR:</h2>
+    <h2>EDITAR/ELIMINAR AUTOR:</h2>
 
-   <form method="POST" action="editAuthor">
+   <form id="myForm1" method="POST" action="editAuthor">
 
-        <select class="form-select mt-2 mb-4" name="id_libro" aria-label="Default select example">
+        <select class="form-select mt-2 mb-4" name="id_autor" aria-label="Default select example">
         <option selected>Elija el autor a editar</option>
         {foreach from=$authorsData item=$autor}
             <option value={$autor->id_autor}>{$autor->nombre}</option>
@@ -33,8 +33,12 @@
         </div>
 
         <div class="col-auto">
-            <button type="submit" class="btn btn-primary mb-3">Editar Autor</button>
-        </div>
+            {*  <button type="submit" class="btn btn-primary mb-3 btn-danger">Editar Autor</button>  *}
+            
+            <input type="submit" class="btn btn-primary mb-3" name="update_button" value="Editar Autor" />
+            
+            <input type="submit" class="btn btn-primary mb-3 btn-danger" name="delete_button" value="Eliminar Autor" />
 
 
     </form>
+
