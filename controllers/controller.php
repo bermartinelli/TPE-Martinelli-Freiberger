@@ -1,16 +1,19 @@
 <?php
 include_once('models/model.php');
 include_once('views/view.php');
+include_once('helpers/auth.helper.php');
 
 class booksController
 {
     private $model;
     private $view;
+    private $authHelper;
 
     public function __construct()
     {
         $this->model = new booksModel();
         $this->view = new booksView();
+        $this->authHelper = new AuthHelper();
     }
 
     public function showAuthors(){
