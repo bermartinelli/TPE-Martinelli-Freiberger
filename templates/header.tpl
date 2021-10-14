@@ -37,12 +37,19 @@
                                     </ul>
                                 </li>
                          </div>
-                            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="logout">Log Out</a> </li>   
-
-                            {else}
-                           <li class="nav-item"> <a class="nav-link active" aria-current="page" href="login">Log in</a> </li>
+                            
                             {/if}
-                            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="autores">Autores</a> </li>
+                        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="autores">Autores</a> </li>
+                    </ul>
+                    
+                    <ul class="navbar-nav ml-auto">
+                    
+                    {if isset($smarty.session.USER_ID)}
+                            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="logout"> <button type="button" class="btn btn-outline-secondary">Log Out </button></a> </li>   
+                    {else}
+                           <li class="nav-item "> <a class="nav-link active" aria-current="page" href="login"><button type="button" class="btn btn-outline-secondary">Log In </button></a> </li>
+                    {/if}
+                            
                        
                     </ul>
                 </div>
