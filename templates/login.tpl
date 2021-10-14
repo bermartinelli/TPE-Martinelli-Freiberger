@@ -1,4 +1,5 @@
 {include file='templates/header.tpl'}
+
 <link rel="stylesheet" href="css/login.css">
 
 </head>
@@ -20,4 +21,5 @@
         {/if}
   </div>
 </div>
+
 {include file='templates/footer.tpl'}
