@@ -23,6 +23,14 @@ switch ($params[0]) {
         $adminController = new adminController();
         $adminController->showLogin();
         break;
+    case 'register':
+        $adminController = new adminController();
+        $adminController->register();
+        break;
+    case 'registerForm':
+        $adminController = new adminController();
+        $adminController->showRegister();
+        break;
     case 'home':
         $controller = new booksController();
         $controller->showBooks();

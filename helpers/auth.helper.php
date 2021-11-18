@@ -18,6 +18,7 @@ class AuthHelper {
     public function login($user) {
         $_SESSION['USER_ID'] = $user->id;
         $_SESSION['USER_NAME'] = $user->username;
+        $_SESSION[$user->rol] = $user->rol;
     }
 
     function logout() {

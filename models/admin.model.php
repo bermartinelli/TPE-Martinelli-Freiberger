@@ -16,6 +16,18 @@ class AdminModel
         $user = $query->fetch(PDO::FETCH_OBJ);
         return $user;
     }
+    function verifyNewUser($email){
+        $query = $this->db->prepare('SELECT * FROM usuarios WHERE email = ?');
+        $query->execute([$email]);
+        $data = $query->fetchAll(PDO::FETCH_OBJ);
+        
+        return $data;
+    }
+
+    function registerUser($email,$username,$password){
+        $query = $this->db->prepare('INSERT INTO usuarios (email,username,password,rol) VALUES (?,?,?,?)');
+        $query->execute([$email,$username,$password,0]);
+    }
 
     function eraseBook($id)
     {

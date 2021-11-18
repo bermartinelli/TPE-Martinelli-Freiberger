@@ -25,6 +25,28 @@ class adminController
     {
         $this->loginView->showLogin();
     }
+    public function showRegister(){
+        $this->loginView->showRegister();
+    }
+
+
+    public function register(){
+        if (!empty($_POST['email']) && !empty($_POST['username']) && !empty($_POST['password'])) {
+            $email = $_POST['email'];
+            $username = $_POST['username'];
+            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
+            $data = $this->adminModel->verifyNewUser($email);
+            if ($data) {
+                $this->loginView->showRegister("El mail ingresado ya esta asociado a una cuenta existente");
+            }
+            else{
+                $this->adminModel->registerUser($email,$username,$password);
+                $this->login();
+            }
+            
+        }
+
+    }
 
     public function login()
     {
@@ -65,12 +87,14 @@ class adminController
         $this->view->showEditBook($dataLibros, $dataAutores);
     }
 
-    public function showAddAuthor() {
+    public function showAddAuthor()
+    {
         $this->authHelper->checkLogedIn();
         $this->view->showAddAuthors();
     }
 
-    public function showEditAuthor() {
+    public function showEditAuthor()
+    {
         $this->authHelper->checkLogedIn();
         $dataAutores = $this->model->getAuthorsData();
         $this->view->showEditAuthor($dataAutores);
@@ -87,9 +111,9 @@ class adminController
             $editorial = $_POST['editorial'];
             $anio = $_POST['anio'];
             $autor = $_POST['autor'];
-            $this->adminModel->addBook($nombre, $genero, $capitulos, $editorial, $anio,$autor);
+            $this->adminModel->addBook($nombre, $genero, $capitulos, $editorial, $anio, $autor);
 
-            header("Location: " . BASE_URL );
+            header("Location: " . BASE_URL);
         }
     }
 
@@ -107,11 +131,12 @@ class adminController
 
             $this->adminModel->editBook($nombre, $genero, $capitulos, $editorial, $anio, $autor, $id_libros);
 
-            header("Location: " . BASE_URL );
+            header("Location: " . BASE_URL);
         }
     }
 
-    public function AddAuthor() {
+    public function AddAuthor()
+    {
         $this->authHelper->checkLogedIn();
         if (!empty($_POST['nombre']) && !empty($_POST['fecha_nacimiento']) && !empty($_POST['nacionalidad'])) {
             $nombre = $_POST['nombre'];
@@ -119,12 +144,13 @@ class adminController
             $muerte = $_POST['fecha_muerte'];
             $nacionalidad = $_POST['nacionalidad'];
 
-        $this->adminModel-> addAuthor($nombre, $nacimiento, $muerte, $nacionalidad);
-        header("Location: " . BASE_URL );
+            $this->adminModel->addAuthor($nombre, $nacimiento, $muerte, $nacionalidad);
+            header("Location: " . BASE_URL);
         }
     }
 
-    public function editAuthor() {               
+    public function editAuthor()
+    {
         if (isset($_POST['update_button'])) {
             $this->authHelper->checkLogedIn();
             if (!empty($_POST['id_autor']) && !empty($_POST['nombre']) && !empty($_POST['fecha_nacimiento']) && !empty($_POST['nacionalidad'])) {
@@ -134,10 +160,9 @@ class adminController
                 $muerte = $_POST['fecha_muerte'];
                 $nacionalidad = $_POST['nacionalidad'];
 
-                $this->adminModel-> editAuthor($nombre, $nacimiento, $muerte, $nacionalidad, $id_autor);
-                header("Location: " . BASE_URL );
+                $this->adminModel->editAuthor($nombre, $nacimiento, $muerte, $nacionalidad, $id_autor);
+                header("Location: " . BASE_URL);
             }
-
         } else if (isset($_POST['delete_button'])) {
             $this->authHelper->checkLogedIn();
             if (!empty($_POST['id_autor'])) {

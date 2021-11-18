@@ -54,8 +54,6 @@ class booksView
         $this->smarty->assign('cabeceraCol_4', 'Editorial');
         $this->smarty->assign('cabeceraCol_5', 'Año de publicacion');
 
-       
-
         $this->smarty->assign('data', $dataQuery);
 
 
@@ -85,4 +83,11 @@ class booksView
 
         $this->smarty->display('templates/editAuthor.tpl');
     }
+    function userRol($rol){
+        $this->smarty->assign('msj','HOLA');
+        $this->smarty->assign('userRol',$rol);
+
+        $this->smarty->display('templates/header.tpl');
+    }
+
 }

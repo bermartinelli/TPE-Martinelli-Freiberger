@@ -22,7 +22,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        {if isset($smarty.session.USER_ID)} <!-- $_SESSION['USER_ID'] -->
+                        {if isset($smarty.session.1) } <!-- verifico el rol de el usuario ingresado -->
                            <div class="dropdown">
                             <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="{BASE_URL}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -34,20 +34,23 @@
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" href="{BASE_URL}agregarAutor">Agregar autor</a></li>
                                         <li><a class="dropdown-item" href="{BASE_URL}EditarAutor">Editar/Eliminar autor</a></li>
+                                   
                                     </ul>
                                 </li>
                          </div>
                             
                             {/if}
                         <li class="nav-item"> <a class="nav-link active" aria-current="page" href="autores">Autores</a> </li>
+
                     </ul>
                     
                     <ul class="navbar-nav ml-auto">
                     
                     {if isset($smarty.session.USER_ID)}
                             <li class="nav-item"> <a class="nav-link active" aria-current="page" href="logout"> <button type="button" class="btn btn-outline-secondary">Log Out </button></a> </li>   
-                    {else}
-                           <li class="nav-item "> <a class="nav-link active" aria-current="page" href="login"><button type="button" class="btn btn-outline-secondary">Log In </button></a> </li>
+                    {else} 
+                        <li class="nav-item "> <a class="nav-link active" aria-current="page" href="login"><button type="button" class="btn btn-outline-secondary">Log In </button></a> </li>
+                        <li class="nav-item "> <a class="nav-link active" aria-current="page" href="registerForm"><button type="button" class="btn btn-outline-secondary">Registrarse </button></a> </li>
                     {/if}
                             
                        
