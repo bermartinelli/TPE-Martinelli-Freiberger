@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Servidor: 127.0.0.1
--- Tiempo de generación: 07-10-2021 a las 20:27:26
+-- Tiempo de generación: 18-11-2021 a las 22:52:31
 -- Versión del servidor: 10.4.19-MariaDB
 -- Versión de PHP: 8.0.6
 
@@ -51,7 +51,7 @@ INSERT INTO `autor` (`id_autor`, `nombre`, `nacimiento`, `muerte`, `nacionalidad
 (9, 'Stieg Larsson', '1954-08-15', '2004-11-09', 'Sueco'),
 (10, 'Paulo Coelho', '1947-08-24', '0000-00-00', 'Brasileño'),
 (11, 'Dan Brown', '1964-06-22', '0000-00-00', 'Estadounidense'),
-(12, 'Patrick Suskind', '1949-03-26', '0000-00-00', 'Alemán');
+(13, 'Patrick Suskind', '1949-03-26', '0000-00-00', 'Aleman');
 
 -- --------------------------------------------------------
 
@@ -74,8 +74,6 @@ CREATE TABLE `libros` (
 --
 
 INSERT INTO `libros` (`id_libros`, `nombre`, `genero`, `capitulos`, `editorial`, `anio`, `id_autor_fk`) VALUES
-(1, 'Carrie', 'Terror', 199, 'DEBOLSILLO', 1974, 1),
-(2, 'El resplandor', 'Terror', 447, 'DEBOLSILLO', 1977, 1),
 (3, 'Eso', 'Terror', 1504, 'DEBOLSILLO', 1986, 1),
 (4, 'La niebla', 'Terror', 230, 'DEBOLSILLO', 2007, 1),
 (5, 'La cúpula', 'Terror', 1074, 'DEBOLSILLO', 2009, 1),
@@ -99,9 +97,6 @@ INSERT INTO `libros` (`id_libros`, `nombre`, `genero`, `capitulos`, `editorial`,
 (23, 'El cuarto arcano', 'Novela', 520, 'Suma de letras', 2007, 5),
 (24, 'Caballo de fuego', 'Novela', 480, 'Suma de letras', 2011, 5),
 (25, 'Jasy', 'Novela', 640, 'Suma de letras', 2014, 5),
-(26, 'El cuervo', 'Poesía', 160, 'Edgar Allan Poe', 1845, 7),
-(27, 'El corazón delator', 'Terror', 238, 'James Russell Lowell', 1843, 7),
-(28, 'Los crímenes de la calle Morgue', 'Terror', 128, 'Edgar Allan Poe', 1841, 7),
 (29, 'La caída de la Casa Usher', 'Terror', 136, ' Burton\'s Gentleman\'s Magazine', 1839, 7),
 (30, 'El gato negro', 'Terror', 224, 'Edgar Allan Poe', 1843, 7),
 (31, 'El señor de los anillos: la comunidad del anillo', 'Literatura fantástica', 398, 'Minotauro', 1958, 8),
@@ -123,15 +118,12 @@ INSERT INTO `libros` (`id_libros`, `nombre`, `genero`, `capitulos`, `editorial`,
 (47, 'Origen', 'Novela', 640, 'Doubleday', 2017, 11),
 (48, 'El símbolo perdido', 'Novela', 618, 'Doubleday', 2009, 11),
 (49, 'Inferno', 'Novela', 551, 'Doubleday', 2003, 11),
-(50, 'La historia del señor Sommer', 'Novela', 103, 'Seix Barral', 1991, 12),
-(51, 'Un combate y otros relatos', 'Novela', 96, 'Seix Barral', 1995, 12),
-(52, 'Sobre el amor y la muerte', 'Novela', 96, 'Seix Barral', 2005, 12),
-(53, 'El perfume', 'Novela', 230, 'Seix Barral', 1985, 12),
 (54, 'Juego de tronos', 'Literatura fantástica', 800, 'PLAZA & JANES', 1996, 6),
 (55, 'Choque de reyes', 'Literatura fantástica', 928, 'PLAZA & JANES', 1998, 6),
 (56, 'Tormenta de espadas', 'Literatura fantástica', 1184, 'PLAZA & JANES', 2000, 6),
 (57, 'Festín de cuervos', 'Literatura fantástica', 1133, 'PLAZA & JANES', 2005, 6),
-(58, 'Danza de dragones', 'Literatura fantástica', 872, 'PLAZA & JANES', 2011, 6);
+(58, 'Danza de dragones', 'Literatura fantástica', 872, 'PLAZA & JANES', 2011, 6),
+(60, 'El general en su laberinto', 'Novela Historica', 20, 'Alfred A. Knopf', 1989, 3);
 
 -- --------------------------------------------------------
 
@@ -141,16 +133,19 @@ INSERT INTO `libros` (`id_libros`, `nombre`, `genero`, `capitulos`, `editorial`,
 
 CREATE TABLE `usuarios` (
   `id` int(11) NOT NULL,
+  `email` varchar(70) NOT NULL,
   `username` varchar(100) NOT NULL,
-  `password` varchar(255) NOT NULL
+  `password` varchar(255) NOT NULL,
+  `rol` tinyint(4) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 --
 -- Volcado de datos para la tabla `usuarios`
 --
 
-INSERT INTO `usuarios` (`id`, `username`, `password`) VALUES
-(1, 'admin', '$2a$12$CG6n2o8hEfD/vTa/KC.T.enw/VuOsXm.JngiG94xm5oYFi.1hH22C');
+INSERT INTO `usuarios` (`id`, `email`, `username`, `password`, `rol`) VALUES
+(1, 'admin@mail.com', 'admin', '$2a$12$CG6n2o8hEfD/vTa/KC.T.enw/VuOsXm.JngiG94xm5oYFi.1hH22C', 1),
+(2, 'mique@mail.com', 'mique5', '$2y$10$2v/2x3fPN1.sJV37onjD2eygqv.0Jor7b6m0a2zEAeV5VO8DAZldW', 0);
 
 --
 -- Índices para tablas volcadas
@@ -183,19 +178,19 @@ ALTER TABLE `usuarios`
 -- AUTO_INCREMENT de la tabla `autor`
 --
 ALTER TABLE `autor`
-  MODIFY `id_autor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
+  MODIFY `id_autor` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=14;
 
 --
 -- AUTO_INCREMENT de la tabla `libros`
 --
 ALTER TABLE `libros`
-  MODIFY `id_libros` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=59;
+  MODIFY `id_libros` int(10) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=61;
 
 --
 -- AUTO_INCREMENT de la tabla `usuarios`
 --
 ALTER TABLE `usuarios`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=2;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
 -- Restricciones para tablas volcadas
@@ -205,7 +200,7 @@ ALTER TABLE `usuarios`
 -- Filtros para la tabla `libros`
 --
 ALTER TABLE `libros`
-  ADD CONSTRAINT `libros_ibfk_1` FOREIGN KEY (`id_autor_fk`) REFERENCES `autor` (`id_autor`);
+  ADD CONSTRAINT `libros_ibfk_1` FOREIGN KEY (`id_autor_fk`) REFERENCES `autor` (`id_autor`) ON DELETE CASCADE;
 COMMIT;
 
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
