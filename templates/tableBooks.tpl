@@ -13,7 +13,7 @@
             <tr>
              <td>
                 <a class="navbar-brand" href="{BASE_URL}libros/{$bookData ->id_libros}">{$bookData ->nombre}</a>
-                    {if isset($smarty.session.1)}
+                    {if isset($smarty.session.ADMIN_ID)}
 
                         <button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#Modal{$bookData ->id_libros}">
                         BORRAR 

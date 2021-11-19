@@ -22,7 +22,7 @@
                 </button>
                 <div class="collapse navbar-collapse" id="navbarText">
                     <ul class="navbar-nav me-auto mb-2 mb-lg-0">
-                        {if isset($smarty.session.1) } <!-- verifico el rol de el usuario ingresado -->
+                        {if isset($smarty.session.ADMIN_ID) } <!-- verifico el rol de el usuario ingresado -->
                            <div class="dropdown">
                             <li class="nav-item dropdown">
                                     <a class="nav-link dropdown-toggle" href="{BASE_URL}" id="navbarDropdownMenuLink" role="button" data-bs-toggle="dropdown" aria-expanded="false">
@@ -46,11 +46,11 @@
                     
                     <ul class="navbar-nav ml-auto">
                     
-                    {if isset($smarty.session.USER_ID)}
-                            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="logout"> <button type="button" class="btn btn-outline-secondary">Log Out </button></a> </li>   
+                    {if isset($smarty.session.ADMIN_ID) || isset($smarty.session.USER_ID)}
+                            <li class="nav-item"> <a class="nav-link active" aria-current="page" href="{BASE_URL}logout"> <button type="button" class="btn btn-outline-secondary">Log Out </button></a> </li>   
                     {else} 
-                        <li class="nav-item "> <a class="nav-link active" aria-current="page" href="login"><button type="button" class="btn btn-outline-secondary">Log In </button></a> </li>
-                        <li class="nav-item "> <a class="nav-link active" aria-current="page" href="registerForm"><button type="button" class="btn btn-outline-secondary">Registrarse </button></a> </li>
+                        <li class="nav-item "> <a class="nav-link active" aria-current="page" href="{BASE_URL}login"><button type="button" class="btn btn-outline-secondary">Log In </button></a> </li>
+                        <li class="nav-item "> <a class="nav-link active" aria-current="page" href="{BASE_URL}registerForm"><button type="button" class="btn btn-outline-secondary">Registrarse </button></a> </li>
                     {/if}
                             
                        

@@ -16,9 +16,15 @@ class AuthHelper {
     }
 
     public function login($user) {
-        $_SESSION['USER_ID'] = $user->id;
-        $_SESSION['USER_NAME'] = $user->username;
-        $_SESSION[$user->rol] = $user->rol;
+        if($user->rol == 1){
+            $_SESSION['ADMIN_ID'] = $user->id;
+            $_SESSION['ADMIN_NAME'] = $user->username;
+        }
+        else{
+            $_SESSION['USER_ID'] = $user->id;
+            $_SESSION['USER_NAME'] = $user->username;
+        }
+        
     }
 
     function logout() {
