@@ -95,6 +95,19 @@ switch ($params[0]) {
         $adminController = new adminController();
         $adminController->editAuthor();
         break;
+    case 'userManage':
+        $adminController = new adminController();
+        $adminController->ShowManageUsers();
+        break;
+    case 'assignAsAdmin':
+        $adminController = new adminController();
+        $adminController->assignAsAdmin($params[1]);
+    case 'deleteUser':
+        $adminController = new adminController();
+        $adminController->deleteUser($params[1]);
+    case 'assignAsAdmin':
+        $adminController = new adminController();
+        $adminController->assignAsAdmin($params[1]);
     default:
         echo '404 - Página no encontrada';
         break;

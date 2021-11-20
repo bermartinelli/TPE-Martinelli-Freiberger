@@ -34,6 +34,8 @@
                                         <li><hr class="dropdown-divider"></li>
                                         <li><a class="dropdown-item" href="{BASE_URL}agregarAutor">Agregar autor</a></li>
                                         <li><a class="dropdown-item" href="{BASE_URL}EditarAutor">Editar/Eliminar autor</a></li>
+                                        <li><hr class="dropdown-divider"></li>
+                                         <li><a class="dropdown-item" href="{BASE_URL}userManage">Administracion de usuarios</a></li>
                                    
                                     </ul>
                                 </li>

@@ -83,11 +83,20 @@ class booksView
 
         $this->smarty->display('templates/editAuthor.tpl');
     }
+    
     function userRol($rol){
         $this->smarty->assign('msj','HOLA');
         $this->smarty->assign('userRol',$rol);
 
         $this->smarty->display('templates/header.tpl');
+    }
+
+    function showManageUsers($dataUsers) {
+        $this->smarty->assign('cabeceraCol_1', 'Nombre de usuario');
+        $this->smarty->assign('cabeceraCol_2', 'Email');
+        $this->smarty->assign('cabeceraCol_3', 'Opciones');
+        $this->smarty->assign('users',$dataUsers);
+        $this->smarty->display('templates/editUsers.tpl');
     }
 
 }

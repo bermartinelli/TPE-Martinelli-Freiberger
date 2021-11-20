@@ -73,7 +73,7 @@ class adminController
 
     public function showAdminOptions()
     {
-        $this->authHelper->checkLogedIn();
+        $this->authHelper->checkAdminLogedIn();
         $dataLibros = $this->model->getAllData();
         $dataAutores = $this->model->getAuthorsData();
         $this->view->showAddBook($dataLibros, $dataAutores);
@@ -81,7 +81,7 @@ class adminController
 
     public function showEditBooks()
     {
-        $this->authHelper->checkLogedIn();
+        $this->authHelper->checkAdminLogedIn();
         $dataLibros = $this->model->getAllData();
         $dataAutores = $this->model->getAuthorsData();
         $this->view->showEditBook($dataLibros, $dataAutores);
@@ -89,20 +89,20 @@ class adminController
 
     public function showAddAuthor()
     {
-        $this->authHelper->checkLogedIn();
+        $this->authHelper->checkAdminLogedIn();
         $this->view->showAddAuthors();
     }
 
     public function showEditAuthor()
     {
-        $this->authHelper->checkLogedIn();
+        $this->authHelper->checkAdminLogedIn();
         $dataAutores = $this->model->getAuthorsData();
         $this->view->showEditAuthor($dataAutores);
     }
 
     public function addBook()
     {
-        $this->authHelper->checkLogedIn();
+        $this->authHelper->checkAdminLogedIn();
 
         if (!empty($_POST['nombre']) && !empty($_POST['genero']) && !empty($_POST['capitulos']) && !empty($_POST['editorial']) && !empty($_POST['anio'])) {
             $nombre = $_POST['nombre'];
@@ -119,7 +119,7 @@ class adminController
 
     public function editBook()
     {
-        $this->authHelper->checkLogedIn();
+        $this->authHelper->checkAdminLogedIn();
         if (!empty($_POST['nombre']) && !empty($_POST['genero']) && !empty($_POST['capitulos']) && !empty($_POST['editorial']) && !empty($_POST['anio'])) {
             $id_libros = $_POST['idLibro'];
             $nombre = $_POST['nombre'];
@@ -137,7 +137,7 @@ class adminController
 
     public function AddAuthor()
     {
-        $this->authHelper->checkLogedIn();
+        $this->authHelper->checkAdminLogedIn();
         if (!empty($_POST['nombre']) && !empty($_POST['fecha_nacimiento']) && !empty($_POST['nacionalidad'])) {
             $nombre = $_POST['nombre'];
             $nacimiento = $_POST['fecha_nacimiento'];
@@ -152,7 +152,7 @@ class adminController
     public function editAuthor()
     {
         if (isset($_POST['update_button'])) {
-            $this->authHelper->checkLogedIn();
+            $this->authHelper->checkAdminLogedIn();
             if (!empty($_POST['id_autor']) && !empty($_POST['nombre']) && !empty($_POST['fecha_nacimiento']) && !empty($_POST['nacionalidad'])) {
                 $id_autor = $_POST['id_autor'];
                 $nombre = $_POST['nombre'];
@@ -164,7 +164,7 @@ class adminController
                 header("Location: " . BASE_URL);
             }
         } else if (isset($_POST['delete_button'])) {
-            $this->authHelper->checkLogedIn();
+            $this->authHelper->checkAdminLogedIn();
             if (!empty($_POST['id_autor'])) {
                 $id_autor = $_POST['id_autor'];
 
@@ -176,15 +176,40 @@ class adminController
 
     public function deleteBook($id)
     {
-        $this->authHelper->checkLogedIn();
+        $this->authHelper->checkAdminLogedIn();
         $this->adminModel->eraseBook($id);
         header("Location: " . BASE_URL);
     }
 
     public function deleteAuthor($id)
     {
-        $this->authHelper->checkLogedIn();
+        $this->authHelper->checkAdminLogedIn();
         $this->adminModel->eraseAuthor($id);
         header("Location: " . BASE_URL);
     }
+
+    public function ShowManageUsers()
+    {
+        $this->authHelper->checkAdminLogedIn();
+        $dataUsers = $this->adminModel->getUsersData();
+        $this->view->showManageUsers($dataUsers);
+    }
+
+    public function assignAsAdmin($id) 
+    {
+        $this->authHelper->checkAdminLogedIn();
+        $this->adminModel->setAsAdmin($id);
+        header("Location: " . BASE_URL.'userManage');
+        
+    }
+
+    public function deleteUser($id) 
+    {
+        $this->authHelper->checkAdminLogedIn();
+        $this->adminModel->eraseUser($id);
+        header("Location: " . BASE_URL.'userManage');
+        
+    }
+
 }
+

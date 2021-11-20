@@ -15,6 +15,13 @@ class AuthHelper {
         }
     }
 
+    public function checkAdminLogedIn(){
+        if (empty($_SESSION['ADMIN_ID'])) {
+            header("Location: " . BASE_URL);
+            die();
+        }
+    }
+
     public function login($user) {
         if($user->rol == 1){
             $_SESSION['ADMIN_ID'] = $user->id;

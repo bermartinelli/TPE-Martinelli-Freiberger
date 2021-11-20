@@ -16,6 +16,27 @@ class AdminModel
         $user = $query->fetch(PDO::FETCH_OBJ);
         return $user;
     }
+
+    function getUsersData()
+    {
+        $query = $this->db->prepare('SELECT * FROM usuarios WHERE rol = 0');
+        $query->execute();
+        $usersData= $query->fetchAll(PDO::FETCH_OBJ);
+        return $usersData;
+    }
+
+    function eraseUser($id)
+    {
+        $query = $this->db->prepare('SELECT * FROM usuarios WHERE id = ?');
+        $query->execute([$id]);
+    }
+
+    function setAsAdmin($id)
+    {
+        $query = $this->db->prepare('UPDATE `usuarios` SET `rol` = 1 WHERE id=?');
+        $query->execute([$id]);
+    }
+
     function verifyNewUser($email){
         $query = $this->db->prepare('SELECT * FROM usuarios WHERE email = ?');
         $query->execute([$email]);
@@ -61,4 +82,5 @@ class AdminModel
         $query = $this->db->prepare('UPDATE `autor` SET `nombre` = ?, `nacimiento` = ?, `muerte` = ?, `nacionalidad` = ? WHERE `autor`.`id_autor` = ?');
         $query->execute([$nombre, $nacimiento, $muerte, $nacionalidad, $id_autor]);
     }
+
 }
