@@ -68,5 +68,12 @@ class booksModel
         return $queryData;
     }
 
+
+    function getComment($id) {
+        $query = $this->db->prepare('SELECT * FROM comentarios WHERE id=?');
+        $query->execute([$id]);
+        return $query->fetch(PDO::FETCH_OBJ);
+    }
+
     
 }

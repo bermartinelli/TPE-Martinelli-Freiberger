@@ -1,7 +1,7 @@
 <?php
 
 class APIView{
-    public function response ($data, $status)
+    public function response ($data, $status=200)
     {
         header("Content-Type:application/json");
         header("HTTPS/1.1 " . $status . " " . $this->requestStatus($status));

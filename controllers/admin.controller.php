@@ -2,12 +2,16 @@
 require_once 'models/admin.model.php';
 require_once 'models/model.php';
 require_once 'views/login.view.php';
+require_once 'views/view.php';
 require_once 'helpers/auth.helper.php';
+require_once 'api/APIViews.php';
 
 class adminController
 {
     private $model;
+    private $adminModel;
     private $view;
+    private $apiView;
     private $authHelper;
 
     public function __construct()
@@ -16,7 +20,9 @@ class adminController
         $this->loginView = new loginView();
         $this->authHelper = new AuthHelper();
         $this->model = new booksModel();
+        $this->adminModel = new AdminModel();
         $this->view = new booksView();
+        $this->apiView = new APIView();
         $this->authHelper = new AuthHelper();
     }
 
@@ -215,6 +221,18 @@ class adminController
         $this->adminModel->eraseUser($id);
         header("Location: " . BASE_URL.'userManage');
         
+    }
+
+    function deleteComent($params=null) {
+        $id = $params[':ID'];
+        $coment = $this->model->getComment($id);
+
+        if($coment) {
+         $coment = $this->adminModel-> eraseComment($id);
+         $this->apiView->response("El comentario con id=$id fue eliminado con exito",200);
+        } else 
+            $this->apiView->response("El comentario con id=$id no fue encontrado",404);
+
     }
 
 }
