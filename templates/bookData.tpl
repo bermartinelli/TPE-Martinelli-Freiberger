@@ -27,9 +27,10 @@
 
 <form method="POST" action="comment">
     <div class="container">
-
+    <label for="exampleFormControlInput1" class="form-label"><strong>Comentarios</strong></label>
         <div class="mb-3 mt-2">
-            <label for="exampleFormControlInput1" class="form-label"><strong>Comentarios</strong></label>
+        
+        <label for="exampleFormControlInput1" class="form-label">Agregue un comentario: </label>
             <textarea type="text" class="form-control" name="comentario" id="exampleFormControlInput1"
                 placeholder="Que le parecio el libro?">
         </textarea>
