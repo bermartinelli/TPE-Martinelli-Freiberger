@@ -1,6 +1,7 @@
 <?php
 require_once 'models/admin.model.php';
 require_once 'models/model.php';
+require_once 'models/user.model.php';
 require_once 'views/login.view.php';
 require_once 'views/view.php';
 require_once 'helpers/auth.helper.php';
@@ -13,68 +14,19 @@ class adminController
     private $view;
     private $apiView;
     private $authHelper;
+    private $userModel;
+    private $loginView;
 
     public function __construct()
     {
         $this->adminModel = new AdminModel();
+        $this->userModel = new UserModel();
         $this->loginView = new loginView();
         $this->authHelper = new AuthHelper();
         $this->model = new booksModel();
         $this->adminModel = new AdminModel();
         $this->view = new booksView();
         $this->apiView = new APIView();
-        $this->authHelper = new AuthHelper();
-    }
-
-
-    public function showLogin()
-    {
-        $this->loginView->showLogin();
-    }
-    public function showRegister(){
-        $this->loginView->showRegister();
-    }
-
-
-    public function register(){
-        if (!empty($_POST['email']) && !empty($_POST['username']) && !empty($_POST['password'])) {
-            $email = $_POST['email'];
-            $username = $_POST['username'];
-            $password = password_hash($_POST['password'], PASSWORD_BCRYPT);
-            $data = $this->adminModel->verifyNewUser($email);
-            if ($data) {
-                $this->loginView->showRegister("El mail ingresado ya esta asociado a una cuenta existente");
-            }
-            else{
-                $this->adminModel->registerUser($email,$username,$password);
-                $this->login();
-            }
-            
-        }
-
-    }
-
-    public function login()
-    {
-        if (!empty($_POST['username']) && !empty($_POST['password'])) {
-            $username = $_POST['username'];
-            $password = $_POST['password'];
-
-            $user = $this->adminModel->getUser($username);
-
-            if ($user && password_verify($password, $user->password)) {
-                $this->authHelper->login($user);
-                header("Location: " . BASE_URL);
-            } else {
-                $this->loginView->showLogin("Usuario o contraseña incorrectos");
-            }
-        }
-    }
-
-    function logout()
-    {
-        session_destroy();
-        $this->authHelper->logout();
     }
 
     public function showAdminOptions()
@@ -197,7 +149,7 @@ class adminController
     public function ShowManageUsers()
     {
         $this->authHelper->checkAdminLogedIn();
-        $dataUsers = $this->adminModel->getUsersData();
+        $dataUsers = $this->userModel->getUsersData();
         $this->view->showManageUsers($dataUsers);
     }
 

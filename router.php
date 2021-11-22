@@ -1,6 +1,7 @@
 <?php
 require_once 'controllers/controller.php';
 require_once 'controllers/admin.controller.php';
+require_once 'controllers/user.controller.php';
 
 // defino la base url para la construccion de links con urls semánticas
 define('BASE_URL', '//' . $_SERVER['SERVER_NAME'] . ':' . $_SERVER['SERVER_PORT'] . dirname($_SERVER['PHP_SELF']) . '/');
@@ -16,28 +17,28 @@ $params = explode('/', $action);
 
 switch ($params[0]) {
     case 'verify':
-        $adminController = new adminController();
-        $adminController->login();
+        $userController = new UserController();
+        $userController->login();
         break;
     case 'login':
-        $adminController = new adminController();
-        $adminController->showLogin();
+        $userController = new UserController();
+        $userController->showLogin();
         break;
     case 'register':
-        $adminController = new adminController();
-        $adminController->register();
+        $userController = new UserController();
+        $userController->register();
         break;
     case 'registerForm':
-        $adminController = new adminController();
-        $adminController->showRegister();
+        $userController = new UserController();
+        $userController->showRegister();
         break;
     case 'home':
         $controller = new booksController();
         $controller->showBooks();
         break;
     case 'logout':
-        $adminController = new adminController();
-        $adminController->logout();
+        $userController = new UserController();
+        $userController->logout();
         break;
     case 'autor':
         $controller = new booksController();
