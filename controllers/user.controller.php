@@ -5,7 +5,8 @@ require_once 'models/user.model.php';
 require_once 'views/login.view.php';
 require_once 'helpers/auth.helper.php';
 
-class UserController {
+class UserController
+{
     private $authHelper;
     private $userModel;
     private $loginView;
@@ -24,11 +25,13 @@ class UserController {
     {
         $this->loginView->showLogin();
     }
-    public function showRegister(){
+    public function showRegister()
+    {
         $this->loginView->showRegister();
     }
 
-    public function register(){
+    public function register()
+    {
         if (!empty($_POST['email']) && !empty($_POST['username']) && !empty($_POST['password'])) {
             $email = $_POST['email'];
             $username = $_POST['username'];
@@ -36,14 +39,11 @@ class UserController {
             $data = $this->userModel->verifyNewUser($email);
             if ($data) {
                 $this->loginView->showRegister("El mail ingresado ya esta asociado a una cuenta existente");
-            }
-            else{
-                $this->userModel->registerUser($email,$username,$password);
+            } else {
+                $this->userModel->registerUser($email, $username, $password);
                 $this->login();
             }
-            
         }
-
     }
 
     public function login()
@@ -68,6 +68,4 @@ class UserController {
         session_destroy();
         $this->authHelper->logout();
     }
-
-
 }
