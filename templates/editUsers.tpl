@@ -64,28 +64,34 @@
                     </div>
                         
              {/if}
-                         <button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#Modal2{$user ->id}">
-                        Eliminar usuario
-                        </button>
 
-                        <!-- Modal -->
-    
-                            <div class="modal fade" id="Modal2{$user ->id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                            <div class="modal-dialog modal-dialog-centered">
-                                <div class="modal-content">
-                                <div class="modal-header">
-                                    <h6 class="modal-title">CONFIRMAR</h5> 
-                                </div>
-                                <div class="modal-body">
-                                <p  class="text-center">¿Estás seguro que desea eliminar al usuario?</p>
-                                </div>
-                                <div class="modal-footer">
-                                    <button type="button" class="btn btn-primary"><a href="deleteUser/{$user ->id}" class="text-decoration-none text-white">Si, estoy seguro</a></button>
-                                    <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>                                
-                                </div>
-                                </div>
-                            </div>
-                            </div>
+             {if $user->username != $smarty.session.ADMIN_NAME}
+                <button type="button" class="btn btn-danger rounded-pill btn-sm" data-bs-toggle="modal" data-bs-target="#Modal2{$user ->id}">
+                Eliminar usuario
+                </button>
+
+                <!-- Modal -->
+
+                    <div class="modal fade" id="Modal2{$user ->id}" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+                    <div class="modal-dialog modal-dialog-centered">
+                        <div class="modal-content">
+                        <div class="modal-header">
+                            <h6 class="modal-title">CONFIRMAR</h5> 
+                        </div>
+                        <div class="modal-body">
+                        <p  class="text-center">¿Estás seguro que desea eliminar al usuario?</p>
+                        </div>
+                        <div class="modal-footer">
+                            <button type="button" class="btn btn-primary"><a href="deleteUser/{$user ->id}" class="text-decoration-none text-white">Si, estoy seguro</a></button>
+                            <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">CERRAR</button>                                
+                        </div>
+                        </div>
+                    </div>
+                    </div>
+             
+                 
+             {/if}
+                        
 
 
             </td>
