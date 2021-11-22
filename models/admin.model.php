@@ -19,7 +19,7 @@ class AdminModel
 
     function getUsersData()
     {
-        $query = $this->db->prepare('SELECT * FROM usuarios WHERE rol = 0');
+        $query = $this->db->prepare('SELECT * FROM usuarios');
         $query->execute();
         $usersData= $query->fetchAll(PDO::FETCH_OBJ);
         return $usersData;
@@ -34,6 +34,10 @@ class AdminModel
     function setAsAdmin($id)
     {
         $query = $this->db->prepare('UPDATE `usuarios` SET `rol` = 1 WHERE id=?');
+        $query->execute([$id]);
+    }
+    function changeRol($id){
+        $query = $this->db->prepare('UPDATE `usuarios` SET `rol` = 0 WHERE id=?');
         $query->execute([$id]);
     }
 

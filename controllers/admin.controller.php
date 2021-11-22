@@ -202,6 +202,12 @@ class adminController
         header("Location: " . BASE_URL.'userManage');
         
     }
+    public function deletePermit($id)
+    {
+        $this->authHelper->checkAdminLogedIn();
+        $this->adminModel->changeRol($id);
+        header("Location: " . BASE_URL.'userManage');
+    }
 
     public function deleteUser($id) 
     {

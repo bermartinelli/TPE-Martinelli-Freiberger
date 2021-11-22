@@ -102,12 +102,19 @@ switch ($params[0]) {
     case 'assignAsAdmin':
         $adminController = new adminController();
         $adminController->assignAsAdmin($params[1]);
+        break;
     case 'deleteUser':
         $adminController = new adminController();
         $adminController->deleteUser($params[1]);
+        break;
     case 'assignAsAdmin':
         $adminController = new adminController();
         $adminController->assignAsAdmin($params[1]);
+        break;
+    case 'deletePermit':
+        $adminController = new adminController();
+        $adminController->deletePermit($params[1]);
+        break;
     default:
         echo '404 - Página no encontrada';
         break;
