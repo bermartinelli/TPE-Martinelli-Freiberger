@@ -59,8 +59,6 @@ class AdminModel
         $query->execute([$nombre, $nacimiento, $muerte, $nacionalidad, $id_autor]);
     }
 
-    
-
     function eraseComment($id) {
         $query = $this->db->prepare('DELETE FROM comentarios WHERE id=?');
         $query->execute([$id]);

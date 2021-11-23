@@ -25,7 +25,7 @@ class UserController
         $this->authHelper = new AuthHelper();
         $this->model = new booksModel();
         $this->view = new booksView();
-        $this->apiView = new APIView();
+        
      
     }
 
@@ -77,35 +77,9 @@ class UserController
         $this->authHelper->logout();
     }
 
-    private function getData() {
-        $data = file_get_contents("php://input");
-        return json_decode($data);
-    }
-
-    public function insertComent($params=null)
-    {
-        $data = $this->getData();
-        $comentario = $data->comentario;
-        $puntuacion = $data->puntuacion;
-        $usuario = $data->usuario;
-        $libro = $data->id_libro;
-
-
-        $id = $this->userModel->postComent($comentario, $puntuacion, $usuario, $libro);
-
-        $coment = $this->model->getComment($id);
-        if($coment)
-            $this->apiView->response($coment);
-        else
-            $this->apiView->response("El comentario no pudo ser posteado",500);
-
-    }
     
-    public function getAll($params=null) {
-        $coments = $this->userModel->getAllComents();
-        $this->apiView->response($coments,200);
 
-    }
+    
 
 
 }

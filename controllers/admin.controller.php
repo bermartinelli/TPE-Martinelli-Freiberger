@@ -12,7 +12,6 @@ class adminController
     private $model;
     private $adminModel;
     private $view;
-    private $apiView;
     private $authHelper;
     private $userModel;
     private $loginView;
@@ -24,9 +23,8 @@ class adminController
         $this->loginView = new loginView();
         $this->authHelper = new AuthHelper();
         $this->model = new booksModel();
-        $this->adminModel = new AdminModel();
         $this->view = new booksView();
-        $this->apiView = new APIView();
+        
     }
 
     public function showAdminOptions()
@@ -175,17 +173,7 @@ class adminController
         
     }
 
-    function deleteComent($params=null) {
-        $id = $params[':ID'];
-        $coment = $this->model->getComment($id);
-
-        if($coment) {
-         $coment = $this->adminModel-> eraseComment($id);
-         $this->apiView->response("El comentario con id=$id fue eliminado con exito",200);
-        } else 
-            $this->apiView->response("El comentario con id=$id no fue encontrado",404);
-
-    }
+    
 
 }
 
