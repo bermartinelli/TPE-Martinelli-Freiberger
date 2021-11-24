@@ -10,11 +10,6 @@ let app = new Vue({
     }
 
 })
-let deleteForm = document.querySelector("#deleteComment");
-if(deleteForm){
-    deleteForm.addEventListener('submit', alert("HOLA"));
-}
-
 
 async function getAll(){
     try{
@@ -28,7 +23,7 @@ async function getAll(){
     }
 }
 
-getAll(); 
+ 
 
 let form = document.querySelector("#FormComments");
 form.addEventListener('submit',addComment);
@@ -61,4 +56,6 @@ form.addEventListener('submit',addComment);
         console.log(e)
     }
 }
+
+getAll();
 
