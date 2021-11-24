@@ -15,12 +15,32 @@
 
 
                 {if isset($smarty.session.ADMIN_ID)}
+                
+    
                     <form id="deleteComment" method="POST">
 
-                        <button type="submit" name="delete_button" class="btn btn-primary btn-danger">Eliminar</button>
+                    
+
+                        <button  type="submit" id="deleteComment" name="delete_button" class="btn btn-primary btn-danger">Eliminar</button>
                     </form>
+                   
+        
                 {/if}
             </div>
         </div>
     </ul>
 </div>
+
+<script src="../js/deletefunction.js"></script>
+
+
+<!--  {literal}
+                    <div id="eliminarComentario">
+                    <form id="deleteComment" method="POST">
+
+                    
+
+                        <button  v-on:click="deleteComment" name="delete_button" class="btn btn-primary btn-danger">Eliminar</button>
+                    </form>
+                    </div>
+                {/literal} --> 

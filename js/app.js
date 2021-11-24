@@ -58,19 +58,6 @@ async function addComment(e) {
 }
 
 
-async function deleteComment(id) {
-    try {
-        let response = await fetch(`${API_URL}/${id}`, {
-            "method": "DELETE",
-        })
-        if (response.ok) {
-            console.log("Se elimino correctamente");
-        }
-
-    } catch (e) {
-        console.log(e);
-    }
-}
 
 getAll();
 
