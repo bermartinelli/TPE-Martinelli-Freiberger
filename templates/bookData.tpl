@@ -26,7 +26,7 @@
 {/foreach}
 
 {if isset($smarty.session.USER_ID) }
-    <form method="POST" action="comment">
+    <form method="POST" id="FormComments" action="">
         <div class="container">
             <label for="exampleFormControlInput1" class="form-label"><strong>Comentarios</strong></label>
             <div class="mb-3 mt-2">
@@ -48,6 +48,9 @@
                     <option value="5">5</option>
                 </select>
             </div>
+
+            <input type="hidden" name="usuario" value="{$smarty.session.USER_ID}">
+            <input type="hidden" name="libro" value="{$queryData ->id_libros}">
 
 
             <button type="submit" class="btn btn-primary mb-3 mt-3">Enviar</button>
