@@ -6,29 +6,29 @@ let comentarios = [];
 let app = new Vue({
     el: "#app",
     data: {
-        commentsData:[],
+        commentsData: [],
     }
 
 })
 
-async function getAll(){
-    try{
+async function getAll() {
+    try {
         let response = await fetch(API_URL);
         let data = await response.json();
 
         app.commentsData = data;
     }
-    catch(e){
+    catch (e) {
         console.log(e)
     }
 }
 
- 
+
 
 let form = document.querySelector("#FormComments");
-form.addEventListener('submit',addComment);
+form.addEventListener('submit', addComment);
 
- async function addComment(e) {
+async function addComment(e) {
     e.preventDefault();
     let data = new FormData(form);
     let comment = {
@@ -52,8 +52,23 @@ form.addEventListener('submit',addComment);
             app.commentsData.push(comment);
         }
 
-    } catch(e) {
+    } catch (e) {
         console.log(e)
+    }
+}
+
+
+async function deleteComment(id) {
+    try {
+        let response = await fetch(`${API_URL}/${id}`, {
+            "method": "DELETE",
+        })
+        if (response.ok) {
+            console.log("Se elimino correctamente");
+        }
+
+    } catch (e) {
+        console.log(e);
     }
 }
 
