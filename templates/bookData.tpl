@@ -33,8 +33,7 @@
 
                 <label for="exampleFormControlInput1" class="form-label">Agregue un comentario: </label>
                 <textarea type="text" class="form-control" name="comentario" id="exampleFormControlInput1"
-                    placeholder="Que le parecio el libro?">
-                </textarea>
+                    placeholder="Que le parecio el libro?"></textarea>
             </div>
 
             <div>
@@ -56,12 +55,11 @@
             <button type="submit" class="btn btn-primary mb-3 mt-3">Enviar</button>
         </div>
     {/if}
-
 </form>
 
     {include file="vue/comments.tpl" id_libro_actual=$queryData ->id_libros}
-    
-    
+
+
 
 <script src="../js/app.js"></script>
 {include file='templates/footer.tpl'}

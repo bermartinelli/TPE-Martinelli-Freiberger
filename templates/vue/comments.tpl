@@ -11,7 +11,6 @@
                     <h6 class="card-subtitle mb-2 text-muted">Puntaje: {{ data.puntuacion }}</h6>
                     <p class="card-text">{{ data.comentario }}</p>
 
-
                 {/literal}
 
 

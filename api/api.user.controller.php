@@ -3,19 +3,23 @@ require_once 'models/admin.model.php';
 require_once 'models/model.php';
 require_once 'models/user.model.php';
 require_once 'api/APIViews.php';
+require_once 'helpers/auth.helper.php';
 
 class ApiUserController{
     private $userModel;
     private $adminModel;
     private $model;
     private $view;
-    
+    private $authHelper;
+
     public function __construct()
     {
+
         $this->userModel = new UserModel;
         $this->adminModel = new AdminModel();
         $this->model = new booksModel();
         $this->apiView = new APIView();
+        $this->authHelper = new AuthHelper();
     }
 
     private function getData() {
@@ -25,6 +29,8 @@ class ApiUserController{
 
     public function insertComent($params=null)
     {
+        $this->authHelper->checkLogedIn();
+
         $data = $this->getData();
         $comentario = $data->comentario;
         $puntuacion = $data->puntuacion;
