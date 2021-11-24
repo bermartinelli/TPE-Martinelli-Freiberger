@@ -59,7 +59,8 @@
 
 </form>
 
-    {include file="vue/comments.tpl"}
+    {include file="vue/comments.tpl" id_libro_actual=$queryData ->id_libros}
+    
     
 
 <script src="../js/app.js"></script>
