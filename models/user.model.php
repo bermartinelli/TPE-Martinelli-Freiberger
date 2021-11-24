@@ -46,7 +46,7 @@ class UserModel{
 
     function getAllComents()
     {
-        $query = $this->db->prepare('SELECT * FROM comentarios');
+        $query = $this->db->prepare('SELECT comentarios.*, usuarios.email as email FROM comentarios JOIN usuarios ON comentarios.usuario = usuarios.id');
         $query->execute();
 
         $coments = $query->fetchAll(PDO::FETCH_OBJ);

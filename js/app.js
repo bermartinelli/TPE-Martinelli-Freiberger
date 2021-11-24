@@ -9,6 +9,11 @@ let app = new Vue({
     }
 
 })
+let deleteForm = document.querySelector("#deleteComment");
+if(deleteForm){
+    deleteForm.addEventListener('submit', alert("HOLA"));
+}
+
 
 async function getAll(){
     try{
