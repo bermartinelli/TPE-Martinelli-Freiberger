@@ -3,7 +3,7 @@
    
     <h2>EDITAR/ELIMINAR AUTOR:</h2>
 
-   <form id="myForm1" method="POST" action="editAuthor">
+   <form id="myForm1" method="POST" action="editAuthor" enctype="multipart/form-data">
 
         <select class="form-select mt-2 mb-4" name="id_autor" aria-label="Default select example">
         <option selected>Elija el autor a editar/eliminar</option>
@@ -31,6 +31,12 @@
             <label for="exampleFormControlInput1" class="form-label">Nacionalidad</label>
             <input type="text" class="form-control" name="nacionalidad" id="exampleFormControlInput1" placeholder="Ingrese la nacionalidad" required>
         </div>
+
+        <div class="mb-3">
+            <label for="exampleFormControlInput1" class="form-label">Agregar Imagen</label>
+            <input type="file" class="form-control" name="input_name" id="imageToUpload">
+        </div>
+
 
         <div class="col-auto">
             {*  <button type="submit" class="btn btn-primary mb-3 btn-danger">Editar Autor</button>  *}

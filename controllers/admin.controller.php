@@ -24,7 +24,6 @@ class adminController
         $this->authHelper = new AuthHelper();
         $this->model = new booksModel();
         $this->view = new booksView();
-        
     }
 
     public function showAdminOptions()
@@ -100,8 +99,13 @@ class adminController
             $muerte = $_POST['fecha_muerte'];
             $nacionalidad = $_POST['nacionalidad'];
 
-            $this->adminModel->addAuthor($nombre, $nacimiento, $muerte, $nacionalidad);
-            header("Location: " . BASE_URL);
+            if ($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
+                $this->adminModel->addAuthor($nombre, $nacimiento, $muerte, $nacionalidad, $_FILES['input_name']['tmp_name']);
+                header("Location: " . BASE_URL);
+            } else {
+                $this->adminModel->addAuthor($nombre, $nacimiento, $muerte, $nacionalidad);
+                header("Location: " . BASE_URL);
+            }
         }
     }
 
@@ -116,8 +120,13 @@ class adminController
                 $muerte = $_POST['fecha_muerte'];
                 $nacionalidad = $_POST['nacionalidad'];
 
-                $this->adminModel->editAuthor($nombre, $nacimiento, $muerte, $nacionalidad, $id_autor);
-                header("Location: " . BASE_URL);
+                if ($_FILES['input_name']['type'] == "image/jpg" || $_FILES['input_name']['type'] == "image/jpeg" || $_FILES['input_name']['type'] == "image/png") {
+                    $this->adminModel->editAuthor($nombre, $nacimiento, $muerte, $nacionalidad, $id_autor, $_FILES['input_name']['tmp_name']);
+                    header("Location: " . BASE_URL);
+                } else {
+                    $this->adminModel->editAuthor($nombre, $nacimiento, $muerte, $nacionalidad, $id_autor);
+                    header("Location: " . BASE_URL);
+                }
             }
         } else if (isset($_POST['delete_button'])) {
             $this->authHelper->checkAdminLogedIn();
@@ -151,29 +160,23 @@ class adminController
         $this->view->showManageUsers($dataUsers);
     }
 
-    public function assignAsAdmin($id) 
+    public function assignAsAdmin($id)
     {
         $this->authHelper->checkAdminLogedIn();
         $this->adminModel->setAsAdmin($id);
-        header("Location: " . BASE_URL.'userManage');
-        
+        header("Location: " . BASE_URL . 'userManage');
     }
     public function deletePermit($id)
     {
         $this->authHelper->checkAdminLogedIn();
         $this->adminModel->changeRol($id);
-        header("Location: " . BASE_URL.'userManage');
+        header("Location: " . BASE_URL . 'userManage');
     }
 
-    public function deleteUser($id) 
+    public function deleteUser($id)
     {
         $this->authHelper->checkAdminLogedIn();
         $this->adminModel->eraseUser($id);
-        header("Location: " . BASE_URL.'userManage');
-        
+        header("Location: " . BASE_URL . 'userManage');
     }
-
-    
-
 }
-

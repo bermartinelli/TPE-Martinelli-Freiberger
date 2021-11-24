@@ -40,7 +40,7 @@ class booksModel
 
     function getAuthorQueryData($queryId)
     {
-        $query = $this->db->prepare('SELECT libros.*, autor.nombre as autor_nombre, autor.nacimiento as nacimiento, autor.muerte as muerte, autor.nacionalidad as nacionalidad FROM libros JOIN autor ON libros.id_autor_fk = autor.id_autor WHERE id_autor =' . $queryId);
+        $query = $this->db->prepare('SELECT libros.*, autor.nombre as autor_nombre, autor.nacimiento as nacimiento, autor.muerte as muerte, autor.nacionalidad as nacionalidad, autor.imagen as imagen FROM libros JOIN autor ON libros.id_autor_fk = autor.id_autor WHERE id_autor =' . $queryId);
         $query->execute();
 
         $queryData = $query->fetchAll(PDO::FETCH_OBJ);
