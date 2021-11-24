@@ -75,5 +75,10 @@ class booksModel
         return $query->fetch(PDO::FETCH_OBJ);
     }
 
-    
+    function getInfoComments($libro) {
+        $query = $this->db->prepare('SELECT comentarios.*, usuarios.email as email FROM comentarios JOIN usuarios ON comentarios.usuario = usuarios.id WHERE id_libro=?');
+        $query->execute([$libro]);
+        $data = $query->fetchAll(PDO::FETCH_OBJ);
+        return $data;
+    }
 }

@@ -33,7 +33,17 @@
 
 {include file="templates/formAltaComment.tpl"}
 
+<form id="formDeleteComment">
+<label>Seleccione comentario a eliminar</label>
+                <select name="commentId" class="form-select" aria-label="Default select example">
+                    {foreach from=$dataComment item=$comment}
+                    <option value="{$comment ->id}"><strong>{$comment ->email}</strong> - {$comment ->comentario}</option>
+                    {/foreach}
+                </select>
+            </div>
 
+<button  type="submit" id="deleteComment" name="delete_button" class="btn btn-primary btn-danger">Eliminar</button>
+</form>
 
 <script src="../js/app.js"></script>
 {include file='templates/footer.tpl'}

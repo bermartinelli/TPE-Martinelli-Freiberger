@@ -31,7 +31,8 @@ class booksController
     public function showInfoBooks($queryId)
     {
         $dataQuery = $this->model->getBooksQueryData($queryId);
-        $this->view->showData($dataQuery);  
+        $dataComment = $this->model->getInfoComments($queryId);
+        $this->view->showData($dataQuery, $dataComment);  
     }
 
     public function showInfoAuthor($queryId)

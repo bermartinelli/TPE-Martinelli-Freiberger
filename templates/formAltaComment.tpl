@@ -1,5 +1,6 @@
 
     <form method="POST" id="FormComments" action="">
+        {if isset($smarty.session.USER_ID)}
         <div class="container">
            
             <div class="mb-3 mt-2">
@@ -26,7 +27,7 @@
                  <input type="hidden" name="libro" value="{$queryData ->id_libros}">
             {/if}
         
-           {if isset($smarty.session.USER_ID) || isset($smarty.session.ADMIN_ID)}
+          
             <button type="submit" class="btn btn-primary mb-3 mt-3">Enviar</button>
             {/if}
 
@@ -34,8 +35,10 @@
              <div class="alert alert-info" role="alert">
            Para postear un comentario necesitas estar loggeado
         </div>
-            {/if}
+           
 
         </div>
-
+ {/if}
     </form>
+
+    

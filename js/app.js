@@ -61,3 +61,25 @@ async function addComment(e) {
 
 getAll();
 
+let formDelete = document.querySelector("#formDeleteComment");
+formDelete.addEventListener('submit', deleteComment);
+
+async function deleteComment(e) {
+    e.preventDefault();
+    let data = new FormData(formDelete);
+    let id = data.get('commentId');
+
+    console.log(id);
+    try {
+        let response = await fetch(`${API_URL}/${id}`, {
+            "method": "DELETE",
+        })
+        if (response.ok) {
+            console.log("Se elimino correctamente");
+            getAll();
+        }
+
+    } catch (e) {
+        console.log(e);
+    }
+}

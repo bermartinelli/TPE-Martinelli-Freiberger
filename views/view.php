@@ -47,7 +47,7 @@ class booksView
         $this->smarty->display('templates/authorDataTable.tpl');
     }
 
-    public function showData($dataQuery){
+    public function showData($dataQuery, $dataComment){
         $this->smarty->assign('cabeceraCol_1', 'Nombre del Libro');
         $this->smarty->assign('cabeceraCol_2', 'Genero');
         $this->smarty->assign('cabeceraCol_3', 'Capitulos');
@@ -55,6 +55,7 @@ class booksView
         $this->smarty->assign('cabeceraCol_5', 'Año de publicacion');
 
         $this->smarty->assign('data', $dataQuery);
+        $this->smarty->assign('dataComment', $dataComment);
 
 
         $this->smarty->display('templates/bookData.tpl');

@@ -21,7 +21,7 @@
 
                     
 
-                        <button  type="submit" id="deleteComment" name="delete_button" class="btn btn-primary btn-danger">Eliminar</button>
+                        
                     </form>
                    
         
