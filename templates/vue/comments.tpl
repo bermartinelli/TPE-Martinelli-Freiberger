@@ -4,7 +4,7 @@
 
             <div class="card-body ">
                 <div class="card mb-3" style="width: 60rem;">
-                    <h5 class="card-title"><strong>{{ data.email }} comento: </strong></h5>
+                    <h5 class="card-title">{{ data.email }} comento: </h5>
                     <h6 class="card-subtitle mb-2 text-muted">Puntaje: {{ data.puntuacion }}</h6>
                     <p class="card-text">{{ data.comentario }}</p>
 
