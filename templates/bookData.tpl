@@ -1,6 +1,7 @@
 {include file='templates/header.tpl'}
 </head>
 
+<div id="container">
 {foreach from=$data item=$queryData}
     <table class="table">
         <thead>
@@ -33,7 +34,11 @@
 
 {include file="templates/formAltaComment.tpl"}
 
+
+{if isset($smarty.session.ADMIN_ID)}
+
 <form id="formDeleteComment">
+
 <label>Seleccione comentario a eliminar</label>
                 <select name="commentId" class="form-select" aria-label="Default select example">
                     {foreach from=$dataComment item=$comment}
@@ -42,8 +47,12 @@
                 </select>
             </div>
 
-<button  type="submit" id="deleteComment" name="delete_button" class="btn btn-primary btn-danger">Eliminar</button>
+<button  type="submit" id="deleteComment" name="delete_button" class="btn ml-7 btn-primary btn-danger">Eliminar</button>
 </form>
+
+{/if}
+</div>
+
 
 <script src="../js/app.js"></script>
 {include file='templates/footer.tpl'}
