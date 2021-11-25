@@ -53,4 +53,15 @@ class ApiUserController{
         $this->apiView->response($coments,200);
 
     }
+
+    public function getCommentsByOrder($params=null) {
+        $puntaje = $params[':PUNTAJE'];
+        $filtredComments = $this-> userModel -> getCommentsByRating($puntaje);
+
+        if($filtredComments) {
+            $this->apiView->response($filtredComments,200);
+        }
+        else
+         $this->apiView->response('Error al obtener comentarios filtrados', 500);
+    }
 }

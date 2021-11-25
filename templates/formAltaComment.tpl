@@ -31,12 +31,11 @@
             <button type="submit" class="btn btn-primary mb-3 mt-3">Enviar</button>
             {/if}
 
-             {if !isset($smarty.session.USER_ID)}
+             {if !isset($smarty.session.USER_ID) && !isset($smarty.session.ADMIN_ID)}
              <div class="alert alert-info" role="alert">
            Para postear un comentario necesitas estar loggeado
         </div>
            
-
         </div>
  {/if}
     </form>

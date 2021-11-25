@@ -52,5 +52,15 @@ class UserModel{
         $coments = $query->fetchAll(PDO::FETCH_OBJ);
         return $coments;
     }
+
+    function getCommentsByRating($puntaje) {
+
+        $query = $this->db->prepare('SELECT comentarios.*, usuarios.email as email FROM comentarios JOIN usuarios ON comentarios.usuario = usuarios.id WHERE puntuacion = ?');
+        $query->execute([$puntaje]);
+
+        $filtredComments = $query->fetchAll(PDO::FETCH_OBJ);
+        return $filtredComments;
+
+    }
     
 }

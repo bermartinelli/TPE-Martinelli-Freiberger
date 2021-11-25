@@ -23,6 +23,22 @@ async function getAll() {
     }
 }
 
+document.querySelector("#filtroPuntaje").addEventListener('click', getCommentsByRating);
+
+async function getCommentsByRating() {
+    let filtro = document.querySelector("#filtroPuntaje");
+    let puntaje = filtro.value;
+    try{
+        let response = await fetch (`${API_URL}/${puntaje}`);
+        let data = await response.json();
+
+        app.commentsData = data;
+    }
+    catch (e) {
+        console.log(e)
+    }
+}
+
 
 
 let form = document.querySelector("#FormComments");
