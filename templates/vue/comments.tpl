@@ -32,15 +32,3 @@
 </div>
 
 <script src="../js/deletefunction.js"></script>
-
-
-<!--  {literal}
-                    <div id="eliminarComentario">
-                    <form id="deleteComment" method="POST">
-
-                    
-
-                        <button  v-on:click="deleteComment" name="delete_button" class="btn btn-primary btn-danger">Eliminar</button>
-                    </form>
-                    </div>
-                {/literal} --> 

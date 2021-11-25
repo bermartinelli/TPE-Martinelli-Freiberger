@@ -25,8 +25,6 @@ class UserController
         $this->authHelper = new AuthHelper();
         $this->model = new booksModel();
         $this->view = new booksView();
-        
-     
     }
 
     public function showLogin()
@@ -76,10 +74,4 @@ class UserController
         session_destroy();
         $this->authHelper->logout();
     }
-
-    
-
-    
-
-
 }
