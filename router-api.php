@@ -9,6 +9,8 @@ $router->addRoute('comentarios','POST','ApiUserController','insertComent');
 $router->addRoute('comentarios','GET','ApiUserController','getAll');
 $router->addRoute('comentarios/:ID','DELETE', 'ApiAdminController','deleteComent');
 
+$router->addRoute('comentarios/:PUNTAJE', 'GET', 'ApiUserController', 'getCommentsByOrder'); 
+
 
 $resource = $_GET['resource'];
 $method = $_SERVER['REQUEST_METHOD'];

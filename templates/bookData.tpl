@@ -28,6 +28,16 @@
 
 
  <label for="exampleFormControlInput1" class="form-label"><strong>Comentarios</strong></label>
+<div>
+<label>FIltrar por puntaje</label>
+ <select id="filtroPuntaje">
+        <option value="1">1</option>
+        <option value="2">2</option>
+        <option value="3">3</option>
+        <option value="4">4</option>
+        <option value="5">5</option>
+ </select>
+ </div>
 {include file="vue/comments.tpl" id_libro_actual=$queryData ->id_libros}
 
 
@@ -37,17 +47,19 @@
 
 {if isset($smarty.session.ADMIN_ID)}
 
-<form id="formDeleteComment">
+<form class="mb-3" id="formDeleteComment">
 
 <label>Seleccione comentario a eliminar</label>
+            <div>
                 <select name="commentId" class="form-select" aria-label="Default select example">
                     {foreach from=$dataComment item=$comment}
                     <option value="{$comment ->id}"><strong>{$comment ->email}</strong> - {$comment ->comentario}</option>
                     {/foreach}
                 </select>
+                <button  type="submit" id="deleteComment" name="delete_button" class="btn  ml-5 btn-primary btn-danger">Eliminar</button>
             </div>
 
-<button  type="submit" id="deleteComment" name="delete_button" class="btn ml-7 btn-primary btn-danger">Eliminar</button>
+
 </form>
 
 {/if}
