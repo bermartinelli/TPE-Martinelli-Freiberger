@@ -11,7 +11,7 @@ class AdminModel
 
     function eraseUser($id)
     {
-        $query = $this->db->prepare('SELECT * FROM usuarios WHERE id = ?');
+        $query = $this->db->prepare('DELETE FROM usuarios WHERE id = ?');
         $query->execute([$id]);
     }
 
@@ -44,6 +44,7 @@ class AdminModel
         $query = $this->db->prepare('INSERT INTO libros (nombre, genero, capitulos, editorial, anio, id_autor_fk) VALUES (? , ? , ? , ? , ? , ? )');
         $query->execute([$nombre, $genero, $capitulos, $editorial, $anio, $autor]);
     }
+
 
     function editBook($nombre, $genero, $capitulos, $editorial, $anio, $autor, $id_libros)
     {

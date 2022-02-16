@@ -38,6 +38,9 @@ class UserController
 
     public function register()
     {
+
+     
+        
         if (!empty($_POST['email']) && !empty($_POST['username']) && !empty($_POST['password'])) {
             $email = $_POST['email'];
             $username = $_POST['username'];
@@ -67,6 +70,8 @@ class UserController
                 $this->loginView->showLogin("Usuario o contraseña incorrectos");
             }
         }
+        else 
+        $this->loginView->showLogin("Complete todos los campos");
     }
 
     function logout()
