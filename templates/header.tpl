@@ -45,7 +45,7 @@
                          </div>
                             
                             {/if}
-                        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="autores">Autores</a> </li>
+                        <li class="nav-item"> <a class="nav-link active" aria-current="page" href="{BASE_URL}autores">Autores</a> </li>
 
                     </ul>
                     

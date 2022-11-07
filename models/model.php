@@ -6,7 +6,7 @@ class booksModel
 
     public function __construct()
     {
-        $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_libros;charset=utf8', 'root', '');
+        $this->db = new PDO('mysql:host=localhost;' . 'dbname=db_libros;charset=utf8','root', '');
     }
 
     //Obtiene todos los libros de la db
